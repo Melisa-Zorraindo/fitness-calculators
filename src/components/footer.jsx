@@ -10,7 +10,7 @@ export default function Footer() {
         icon={Linkedin}
         linkTo={"https://www.linkedin.com/in/melisa-zorraindo-81719618b/"}
       />
-      <IconLink icon={Mail} />
+      <IconLink icon={Mail} linkTo={"mailto:melisa.zorraindo@gmail.com"} />
     </StyledFooter>
   );
 }
