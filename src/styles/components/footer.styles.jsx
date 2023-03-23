@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
 export const StyledFooter = styled.footer`
-  color: red;
+  display: flex;
+  gap: 1rem;
 `;
