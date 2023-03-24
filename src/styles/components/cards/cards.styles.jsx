@@ -15,6 +15,10 @@ export const StyledCard = styled.div`
     width: 6.25rem;
   }
 
+  p {
+    max-width: 400px;
+  }
+
   @media (max-width: ${({ theme }) => theme.break.medium}) {
     img {
       width: 5.25rem;

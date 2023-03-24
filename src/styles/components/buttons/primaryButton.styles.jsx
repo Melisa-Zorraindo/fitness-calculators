@@ -8,6 +8,7 @@ export const StyledCTA = styled.button`
   font-weight: 700;
   font-family: "Urbanist", sans-serif;
   font-size: 20px;
+  margin-top: 2rem;
 
   @media (max-width: ${({ theme }) => theme.break.medium}) {
     font-size: 18px;

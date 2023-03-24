@@ -14,7 +14,7 @@ export const StyledPage = styled.main`
   }
 
   a {
-    flex: 0 0 45%;
+    flex: 0 0 40%;
   }
 
   @media (max-width: ${({ theme }) => theme.break.medium}) {

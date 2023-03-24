@@ -4,11 +4,11 @@ const dark = {
   color: {
     main: "#202020",
     contrast: "#333",
-    support: "#fffeee",
+    support: "#fff",
     accent: "linear-gradient(90deg, #f7ff82 10%, #00ffff 100%)",
   },
   break: {
-    medium: "795px",
+    medium: "820px",
     small: "550px",
   },
 };
