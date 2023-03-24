@@ -1,13 +1,13 @@
 import { StyledPage } from "../../styles/pages";
-import Calories from "../calorieCalculator";
-import Lifting from "../liftingCalculator";
+import CalorieCard from "../../components/cards/CalorieCard";
+import LiftingCard from "../../components/cards/liftingCard";
 
 export default function Home() {
   return (
     <StyledPage>
       <h1>Choose a calculator</h1>
-      <Lifting />
-      <Calories />
+      <LiftingCard />
+      <CalorieCard />
     </StyledPage>
   );
 }
