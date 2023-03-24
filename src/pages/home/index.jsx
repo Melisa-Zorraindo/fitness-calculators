@@ -5,8 +5,9 @@ import Lifting from "../liftingCalculator";
 export default function Home() {
   return (
     <StyledPage>
-      <Calories />
+      <h1>Choose a calculator</h1>
       <Lifting />
+      <Calories />
     </StyledPage>
   );
 }
