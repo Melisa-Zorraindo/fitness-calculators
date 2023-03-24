@@ -9,6 +9,7 @@ export const StyledCTA = styled.button`
   font-family: "Urbanist", sans-serif;
   font-size: 20px;
   margin-top: 2rem;
+  cursor: pointer;
 
   @media (max-width: ${({ theme }) => theme.break.medium}) {
     font-size: 18px;
