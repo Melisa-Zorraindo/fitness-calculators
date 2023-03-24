@@ -12,8 +12,11 @@ export const StyledHeader = styled.header`
 
   button {
     border: none;
-    background-color: transparent;
+    display: inline-flex;
+    border-radius: 50%;
+    background: ${({ theme }) => theme.color.contrast};
     color: ${({ theme }) => theme.color.support};
+    padding: 0.7rem;
     cursor: pointer;
   }
 `;

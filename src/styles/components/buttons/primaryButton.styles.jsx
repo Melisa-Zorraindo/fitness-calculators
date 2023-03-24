@@ -5,7 +5,11 @@ export const StyledCTA = styled.button`
   border: none;
   padding: 0.8rem 2rem;
   border-radius: 2rem;
-  font-weight: 600;
-  font-size: ${({ theme }) => theme.font.size};
-  font-family: ${({ theme }) => theme.font.family};
+  font-weight: 700;
+  font-family: "Urbanist", sans-serif;
+  font-size: 20px;
+
+  @media (max-width: ${({ theme }) => theme.break.medium}) {
+    font-size: 18px;
+  }
 `;

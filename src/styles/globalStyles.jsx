@@ -22,6 +22,10 @@ body {
   max-width: 1280px;
   background-color: ${({ theme }) => theme.color.main};
   margin: 0 auto;
-  
+}
+
+a {
+  text-decoration: none;
+  color: ${({ theme }) => theme.color.main};
 }
 `;
