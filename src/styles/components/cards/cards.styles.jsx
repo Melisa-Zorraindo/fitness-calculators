@@ -10,6 +10,11 @@ export const StyledCard = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  transition: all 0.5s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 
   img {
     width: 6.25rem;
