@@ -15,12 +15,12 @@ export default function LiftingCard() {
               Tired of guessing how much weight to lift during your workouts?
               Use a lifting calculator!
             </p>
-            <p>
+            {/*   <p>
               Input your one-rep max and desired reps, and it generates the
               perfect weight for your exercise. No guesswork, just efficient
               workouts.
             </p>
-            <p>Try it now and take your fitness game to the next level!</p>
+            <p>Try it now and take your fitness game to the next level!</p> */}
           </>
         }
         buttonText={"discover your goals"}

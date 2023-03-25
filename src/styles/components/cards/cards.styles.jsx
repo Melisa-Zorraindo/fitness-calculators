@@ -3,21 +3,26 @@ import styled from "styled-components";
 export const StyledCard = styled.div`
   background-color: ${({ theme }) => theme.color.support};
   color: ${({ theme }) => theme.color.main};
-  border-radius: 1.5rem;
-  margin: 0 auto;
-  padding: 2rem;
+  border-radius: 0.8rem;
+  padding: 4rem 2rem 3rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  transition: all 0.5s;
+  position: relative;
+  transition: all 0.5s ease;
 
   &:hover {
-    transform: scale(1.05);
+    transform: rotateZ(5deg);
+  }
+
+  h2 {
+    margin: 5rem 0 0;
   }
 
   img {
     width: 6.25rem;
+    position: absolute;
+    top: -2.5rem;
   }
 
   p {

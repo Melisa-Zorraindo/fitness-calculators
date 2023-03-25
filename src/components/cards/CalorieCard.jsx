@@ -15,12 +15,12 @@ export default function CalorieCard() {
               Are you struggling to meet your fitness goals? A calorie
               calculator can help!
             </p>
-            <p>
+            {/* <p>
               This tool calculates the number of calories you should consume
               each day based on factors such as your age, weight, height, and
               activity level.
             </p>
-            <p>Try it out today and see the difference it can make!</p>
+            <p>Try it out today and see the difference it can make!</p> */}
           </>
         }
         buttonText={"start your journey"}

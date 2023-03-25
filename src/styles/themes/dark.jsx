@@ -6,7 +6,6 @@ const dark = {
     contrast: "#333",
     support: "#fff",
     accent: "linear-gradient(90deg, #f7ff82 10%, #00ffff 100%)",
-    onFocus: "#00ffff",
   },
   break: {
     medium: "820px",
