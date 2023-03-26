@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const StyledCard = styled.div`
-  background-color: ${({ theme }) => theme.color.support};
-  color: ${({ theme }) => theme.color.main};
+  background-color: ${({ theme }) => theme.color.contrast};
+  color: ${({ theme }) => theme.color.support};
   border-radius: 0.8rem;
   padding: 4rem 2rem 3rem;
   display: flex;

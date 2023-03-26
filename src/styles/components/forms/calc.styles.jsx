@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const StyledForm = styled.div`
-  background-color: ${({ theme }) => theme.color.support};
-  color: ${({ theme }) => theme.color.main};
+  background-color: ${({ theme }) => theme.color.contrast};
+  color: ${({ theme }) => theme.color.support};
   border-radius: 0.8rem;
   padding: 2rem;
   margin: 0 auto;
@@ -27,6 +27,7 @@ export const StyledForm = styled.div`
     border-radius: 0.8rem;
     padding: 2rem 1rem;
     background: ${({ theme }) => theme.color.onFocus};
+    color: ${({ theme }) => theme.color.main};
     display: none;
     height: 100%;
 
@@ -67,7 +68,9 @@ export const StyledForm = styled.div`
         font-family: "Urbanist", sans-serif;
         font-size: 18px;
         border: none;
-        border-bottom: 1px solid ${({ theme }) => theme.color.contrast};
+        border-bottom: 1px solid ${({ theme }) => theme.color.support};
+        color: ${({ theme }) => theme.color.support};
+        background-color: ${({ theme }) => theme.color.contrast};
 
         &:focus {
           outline: none;
