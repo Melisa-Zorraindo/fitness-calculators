@@ -6,7 +6,7 @@ export default function Card({ heading, text, img, altText, buttonText }) {
     <StyledCard>
       <img src={img} alt={altText}></img>
       <h2>{heading}</h2>
-      <div>{text}</div>
+      <p>{text}</p>
       <PrimaryCTA text={buttonText} />
     </StyledCard>
   );
