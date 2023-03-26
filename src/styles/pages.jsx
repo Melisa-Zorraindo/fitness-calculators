@@ -18,6 +18,7 @@ export const StyledPage = styled.main`
     background: ${({ theme }) => theme.color.accent};
     border-radius: 0.8rem;
     margin: 4rem auto;
+    height: fit-content;
   }
 
   @media (max-width: ${({ theme }) => theme.break.medium}) {
