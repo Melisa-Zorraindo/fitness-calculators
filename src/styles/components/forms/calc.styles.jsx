@@ -5,7 +5,6 @@ export const StyledForm = styled.div`
   color: ${({ theme }) => theme.color.support};
   border-radius: 0.8rem;
   padding: 2rem;
-  margin: 0 auto;
   position: relative;
 
   .info-btn {
