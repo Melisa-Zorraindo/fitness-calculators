@@ -66,7 +66,7 @@ export default function LiftingForm() {
               min: 1,
             })}
           ></input>
-          <p>{errors.liftedWeight?.message}</p>
+          <p className="validation-error">{errors.liftedWeight?.message}</p>
         </div>
 
         <div className="field-block">
@@ -79,7 +79,7 @@ export default function LiftingForm() {
             aria-label="Enter the number of reps you performed"
             {...register("liftedReps", { required: true, min: 1, max: 12 })}
           ></input>
-          <p>{errors.liftedReps?.message}</p>
+          <p className="validation-error">{errors.liftedReps?.message}</p>
         </div>
 
         <div className="field-block">
@@ -100,7 +100,7 @@ export default function LiftingForm() {
             <option>9.5</option>
             <option>10</option>
           </select>
-          <p>{errors.liftedRpe?.message}</p>
+          <p className="validation-error">{errors.liftedRpe?.message}</p>
         </div>
 
         <div className="field-block">
@@ -113,7 +113,7 @@ export default function LiftingForm() {
             aria-label="Enter the number of reps you want to perform"
             {...register("desiredReps", { required: true, min: 1, max: 12 })}
           ></input>
-          <p>{errors.desiredReps?.message}</p>
+          <p className="validation-error">{errors.desiredReps?.message}</p>
         </div>
 
         <div className="field-block">
@@ -134,7 +134,7 @@ export default function LiftingForm() {
             <option>9.5</option>
             <option>10</option>
           </select>
-          <p>{errors.desiredRpe?.message}</p>
+          <p className="validation-error">{errors.desiredRpe?.message}</p>
         </div>
 
         <PrimaryCTA text={"calculate"} />

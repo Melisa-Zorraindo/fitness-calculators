@@ -77,6 +77,11 @@ export const StyledForm = styled.div`
           border-bottom: 2px solid ${({ theme }) => theme.color.onFocusContrast};
         }
       }
+
+      .validation-error {
+        background-color: ${({ theme }) => theme.color.onFocusContrast};
+        color: ${({ theme }) => theme.color.contrast};
+      }
     }
   }
 `;

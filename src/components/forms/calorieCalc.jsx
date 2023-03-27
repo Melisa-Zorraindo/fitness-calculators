@@ -69,7 +69,7 @@ export default function CalorieForm() {
             <option>Female</option>
             <option>Male</option>
           </select>
-          <p>{errors.gender?.message}</p>
+          <p className="validation-error">{errors.gender?.message}</p>
         </div>
         <div className="field-block">
           <label htmlFor="age">Your age</label>
@@ -81,7 +81,7 @@ export default function CalorieForm() {
             aria-label="Enter your age"
             {...register("age", { required: true, min: 18, max: 80 })}
           ></input>
-          <p>{errors.age?.message}</p>
+          <p className="validation-error">{errors.age?.message}</p>
         </div>
         <div className="field-block">
           <label htmlFor="person-weight">Your weight</label>
@@ -93,7 +93,7 @@ export default function CalorieForm() {
             aria-label="Enter your weight in KG"
             {...register("personWeight", { required: true, min: 40, max: 160 })}
           ></input>
-          <p>{errors.personWeight?.message}</p>
+          <p className="validation-error">{errors.personWeight?.message}</p>
         </div>
         <div className="field-block">
           <label htmlFor="person-height">Your height</label>
@@ -109,7 +109,7 @@ export default function CalorieForm() {
               max: 230,
             })}
           ></input>
-          <p>{errors.personHeight?.message}</p>
+          <p className="validation-error">{errors.personHeight?.message}</p>
         </div>
         <div className="field-block">
           <label htmlFor="activity-level">Your activity level</label>
@@ -125,7 +125,7 @@ export default function CalorieForm() {
             <option value={4}>Moderate exercise (3-5 days a week)</option>
             <option value={5}>Heavy exercise (6-7 days a week)</option>
           </select>
-          <p>{errors.activityLevel?.message}</p>
+          <p className="validation-error">{errors.activityLevel?.message}</p>
         </div>
         <div className="field-block">
           <label htmlFor="goal">Your goal</label>
@@ -140,7 +140,7 @@ export default function CalorieForm() {
             <option value={"maintain"}>Maintain weight</option>
             <option value={"mildgain"}>Gain weight</option>
           </select>
-          <p>{errors.goal?.message}</p>
+          <p className="validation-error">{errors.goal?.message}</p>
         </div>
         <PrimaryCTA text={"calculate"} />
         <div className="instructions">
