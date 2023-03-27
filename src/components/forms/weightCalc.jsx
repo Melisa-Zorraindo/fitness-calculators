@@ -1,22 +1,72 @@
 import PrimaryCTA from "../buttons/primaryButton";
 import { Info } from "react-feather";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+const schema = yup
+  .object({
+    liftedWeight: yup
+      .number()
+      .typeError("This is a required field")
+      .positive()
+      .integer()
+      .min(1, "Number of reps cannot be lower than 1")
+      .required(),
+    liftedReps: yup
+      .number()
+      .typeError("This is a required field")
+      .positive()
+      .integer()
+      .min(1, "Number of reps cannot be lower than 1")
+      .max(12, "Number of reps cannot be higher than 12")
+      .required(),
+    liftedRpe: yup.number().typeError("This is a required field").required(),
+    desiredReps: yup
+      .number()
+      .typeError("This is a required field")
+      .positive()
+      .integer()
+      .min(1, "Number of reps cannot be lower than 1")
+      .max(12, "Number of reps cannot be higher than 12")
+      .required(),
+    desiredRpe: yup.number().typeError("This is a required field").required(),
+  })
+  .required();
 
 export default function LiftingForm() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  function onSubmit(data) {
+    console.log(data);
+  }
+
   return (
     <>
       <button className="info-btn">
         <Info size={"2rem"} />
       </button>
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="field-block">
           <label htmlFor="lifted-weight">I lifted</label>
           <input
             name="lifted-weight"
             id="lifted-weight"
-            type="text"
+            type="number"
             placeholder="Enter amount in kg"
             aria-label="Enter the amount of weight lifted in kilograms"
+            {...register("liftedWeight", {
+              required: true,
+              min: 1,
+            })}
           ></input>
+          <p>{errors.liftedWeight?.message}</p>
         </div>
 
         <div className="field-block">
@@ -27,7 +77,9 @@ export default function LiftingForm() {
             type="number"
             placeholder="Enter number of reps"
             aria-label="Enter the number of reps you performed"
+            {...register("liftedReps", { required: true, min: 1, max: 12 })}
           ></input>
+          <p>{errors.liftedReps?.message}</p>
         </div>
 
         <div className="field-block">
@@ -36,6 +88,7 @@ export default function LiftingForm() {
             name="lifted-rpe"
             id="lifted-rpe"
             aria-label="Select the RPE value you experienced during the lift"
+            {...register("liftedRpe", { required: true })}
           >
             <option value="">Choose RPE</option>
             <option>6.5</option>
@@ -47,6 +100,7 @@ export default function LiftingForm() {
             <option>9.5</option>
             <option>10</option>
           </select>
+          <p>{errors.liftedRpe?.message}</p>
         </div>
 
         <div className="field-block">
@@ -57,7 +111,9 @@ export default function LiftingForm() {
             type="number"
             placeholder="Enter number of reps"
             aria-label="Enter the number of reps you want to perform"
+            {...register("desiredReps", { required: true, min: 1, max: 12 })}
           ></input>
+          <p>{errors.desiredReps?.message}</p>
         </div>
 
         <div className="field-block">
@@ -66,6 +122,7 @@ export default function LiftingForm() {
             name="desired-rpe"
             id="desired-rpe"
             aria-label="Select the desired RPE value you want to perform the lift at"
+            {...register("desiredRpe", { required: true })}
           >
             <option>Choose RPE</option>
             <option>6.5</option>
@@ -77,6 +134,7 @@ export default function LiftingForm() {
             <option>9.5</option>
             <option>10</option>
           </select>
+          <p>{errors.desiredRpe?.message}</p>
         </div>
 
         <PrimaryCTA text={"calculate"} />
