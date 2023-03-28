@@ -4,8 +4,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { coefficients } from "../../utils/liftingCoefficients";
-import { useState } from "react";
-import ResultsLiftingCard from "../cards/ResultsLiftingCard";
+import { useLiftingStore } from "../../utils/stateManagement/liftingState";
+import { shallow } from "zustand/shallow";
 
 const schema = yup
   .object({
@@ -46,8 +46,13 @@ export default function LiftingForm() {
     resolver: yupResolver(schema),
   });
 
-  const [oneRm, setOneRm] = useState(0);
-  const [weight, setWeight] = useState(0);
+  const { updateOneRm, updateWeightToLift } = useLiftingStore(
+    (state) => ({
+      updateOneRm: state.updateOneRm,
+      updateWeightToLift: state.updateWeightToLift,
+    }),
+    shallow
+  );
 
   function onSubmit({
     desiredReps,
@@ -61,14 +66,14 @@ export default function LiftingForm() {
     const coeffForRM = selectedRpe[liftedReps - 1];
     const rm = (liftedWeight / coeffForRM).toFixed(1);
 
-    setOneRm(rm);
+    updateOneRm(rm);
 
     //get recommended lifting weight
     const wantedRpe = coefficients[desiredRpe];
     const coeffForRecommendedWeight = wantedRpe[desiredReps - 1];
     const weightToLift = (rm * coeffForRecommendedWeight).toFixed(1);
 
-    setWeight(weightToLift);
+    updateWeightToLift(weightToLift);
   }
 
   return (
@@ -197,8 +202,6 @@ export default function LiftingForm() {
           </p>
         </div>
       </form>
-
-      <ResultsLiftingCard oneRM={oneRm} weight={weight} />
     </>
   );
 }
