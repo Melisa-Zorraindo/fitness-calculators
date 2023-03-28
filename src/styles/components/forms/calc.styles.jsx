@@ -83,4 +83,12 @@ export const StyledForm = styled.div`
       }
     }
   }
+
+  .results {
+    margin-top: 4rem;
+
+    span {
+      font-weight: 700;
+    }
+  }
 `;

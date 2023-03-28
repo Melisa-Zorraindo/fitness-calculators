@@ -1,13 +1,15 @@
-import { StyledResultsCard } from "../../styles/components/cards/resultCards.styles";
-
 export default function ResultsLiftingCard({ oneRM, weight }) {
   return (
-    <StyledResultsCard>
-      <div>
-        <h2>Results</h2>
-        <p>Estimated 1 RM: {oneRM || 0}</p>
-        <p>Weight: {weight || 0}</p>
-      </div>
-    </StyledResultsCard>
+    <div className="results">
+      <h2>Results</h2>
+      <p>
+        Estimated 1 RM: <span>{oneRM || 0} </span>
+        Kg
+      </p>
+      <p>
+        Recommended to lift: <span>{weight || 0} </span>
+        Kg
+      </p>
+    </div>
   );
 }
