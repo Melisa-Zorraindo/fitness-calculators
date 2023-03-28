@@ -3,6 +3,7 @@ import { Info } from "react-feather";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { coefficients } from "../../utils/liftingCoefficients";
 
 const schema = yup
   .object({
@@ -43,8 +44,25 @@ export default function LiftingForm() {
     resolver: yupResolver(schema),
   });
 
-  function onSubmit(data) {
-    console.log(data);
+  function onSubmit({
+    desiredReps,
+    desiredRpe,
+    liftedReps,
+    liftedRpe,
+    liftedWeight,
+  }) {
+    //get 1RM
+    const selectedRpe = coefficients[liftedRpe];
+    const coeffForRM = selectedRpe[liftedReps - 1];
+    const rm = (liftedWeight / coeffForRM).toFixed(1);
+
+    //get recommended lifting weight
+    const wantedRpe = coefficients[desiredRpe];
+    const coeffForRecommendedWeight = wantedRpe[desiredReps - 1];
+    const weightToLift = (rm * coeffForRecommendedWeight).toFixed(1);
+
+    console.log({ rm: rm, weightToLift: weightToLift });
+    return { rm: rm, weightToLift: weightToLift };
   }
 
   return (
@@ -91,14 +109,14 @@ export default function LiftingForm() {
             {...register("liftedRpe", { required: true })}
           >
             <option value="">Choose RPE</option>
-            <option>6.5</option>
-            <option>7</option>
-            <option>7.5</option>
-            <option>8</option>
-            <option>8.5</option>
-            <option>9</option>
-            <option>9.5</option>
-            <option>10</option>
+            <option value={7}>6.5</option>
+            <option value={6}>7</option>
+            <option value={5}>7.5</option>
+            <option value={4}>8</option>
+            <option value={3}>8.5</option>
+            <option value={2}>9</option>
+            <option value={1}>9.5</option>
+            <option value={0}>10</option>
           </select>
           <p className="validation-error">{errors.liftedRpe?.message}</p>
         </div>
@@ -124,15 +142,15 @@ export default function LiftingForm() {
             aria-label="Select the desired RPE value you want to perform the lift at"
             {...register("desiredRpe", { required: true })}
           >
-            <option>Choose RPE</option>
-            <option>6.5</option>
-            <option>7</option>
-            <option>7.5</option>
-            <option>8</option>
-            <option>8.5</option>
-            <option>9</option>
-            <option>9.5</option>
-            <option>10</option>
+            <option value="">Choose RPE</option>
+            <option value={7}>6.5</option>
+            <option value={6}>7</option>
+            <option value={5}>7.5</option>
+            <option value={4}>8</option>
+            <option value={3}>8.5</option>
+            <option value={2}>9</option>
+            <option value={1}>9.5</option>
+            <option value={0}>10</option>
           </select>
           <p className="validation-error">{errors.desiredRpe?.message}</p>
         </div>
