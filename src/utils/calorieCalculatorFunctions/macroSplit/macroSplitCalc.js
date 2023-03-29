@@ -14,3 +14,11 @@ export default function macroSplitCalc(tdee, weight) {
     protein: protein,
   };
 }
+
+/* const tdee = 2259;
+
+const protein = (tdee * 0.15) / 4;
+const fats = (tdee * 0.3) / 9;
+const carbs = (tdee * 0.55) / 4;
+
+console.log({ protein: protein, fats: fats, carbs: carbs }); */

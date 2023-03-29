@@ -5,7 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import bmrCalc from "../../utils/calorieCalculatorFunctions/bmrCalc";
 import tdeeCalc from "../../utils/calorieCalculatorFunctions/tdeeCalc";
-import macroSplitCalc from "../../utils/calorieCalculatorFunctions/macroSplitCalc";
+import macroSplitSelector from "../../utils/calorieCalculatorFunctions/macroSplit/macroSplitSelector";
 import calorieBudgetCalc from "../../utils/calorieCalculatorFunctions/calorieBudget";
 import { useCalorieStore } from "../../utils/stateManagement/calorieState";
 import { shallow } from "zustand/shallow";
@@ -67,6 +67,7 @@ export default function CalorieForm() {
     personHeight,
     activityLevel,
     goal,
+    macroSplit,
   }) {
     const personsBMR = bmrCalc(gender, age, personWeight, personHeight);
     const personsTDEE = tdeeCalc(personsBMR, activityLevel, goal);
@@ -74,7 +75,7 @@ export default function CalorieForm() {
 
     updateCalories(tdee);
 
-    const macros = macroSplitCalc(personsTDEE, personWeight);
+    const macros = macroSplitSelector(macroSplit, personsTDEE, personWeight);
 
     updateMacros(macros);
 
@@ -178,6 +179,20 @@ export default function CalorieForm() {
           </select>
           <p className="validation-error">{errors.goal?.message}</p>
         </div>
+        <div className="field-block">
+          <label htmlFor="macroSplit">Your macro split</label>
+          <select
+            name="macroSplit"
+            id="macroSplit"
+            aria-label="Select your macro split"
+            {...register("macroSplit", { required: false })}
+          >
+            <option value={""}>Choose macro split (optional)</option>
+            <option value={"who"}>WHO recommended</option>
+            <option value={"weightlifting"}>Weightlifting</option>
+            <option value={"keto"}>Keto</option>
+          </select>
+        </div>
         <PrimaryCTA text={"calculate"} />
         <div className="instructions">
           <ol>
@@ -210,7 +225,7 @@ export default function CalorieForm() {
               estimate, and you may need to adjust your calorie intake based on
               your individual needs and goals. Also, please make sure to consult
               with a healthcare professional before making any significant
-              changes to your diet or exercise routine.
+              changes to your macro or exercise routine.
             </p>
           </ol>
         </div>
