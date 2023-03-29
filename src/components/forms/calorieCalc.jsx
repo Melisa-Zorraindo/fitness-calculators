@@ -7,6 +7,8 @@ import bmrCalc from "../../utils/calorieCalculatorFunctions/bmrCalc";
 import tdeeCalc from "../../utils/calorieCalculatorFunctions/tdeeCalc";
 import macroSplitCalc from "../../utils/calorieCalculatorFunctions/macroSplitCalc";
 import calorieBudgetCalc from "../../utils/calorieCalculatorFunctions/calorieBudget";
+import { useCalorieStore } from "../../utils/stateManagement/calorieState";
+import { shallow } from "zustand/shallow";
 
 const schema = yup
   .object({
@@ -49,6 +51,15 @@ export default function CalorieForm() {
     resolver: yupResolver(schema),
   });
 
+  const { updateCalories, updateMacros, updateWeeklyBudget } = useCalorieStore(
+    (state) => ({
+      updateCalories: state.updateCalories,
+      updateMacros: state.updateMacros,
+      updateWeeklyBudget: state.updateWeeklyBudget,
+    }),
+    shallow
+  );
+
   function onSubmit({
     gender,
     age,
@@ -59,11 +70,19 @@ export default function CalorieForm() {
   }) {
     const personsBMR = bmrCalc(gender, age, personWeight, personHeight);
     const personsTDEE = tdeeCalc(personsBMR, activityLevel, goal);
+    const tdee = Math.floor(personsTDEE);
     console.log(Math.floor(personsTDEE));
+
+    updateCalories(tdee);
+
     const macros = macroSplitCalc(personsTDEE, personWeight);
     console.log(macros);
+
+    updateMacros(macros);
     const calorieBudget = calorieBudgetCalc(personsTDEE);
     console.log(calorieBudget);
+
+    updateWeeklyBudget(calorieBudget);
   }
 
   return (
