@@ -5,6 +5,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import bmrCalc from "../../utils/calorieCalculatorFunctions/bmrCalc";
 import tdeeCalc from "../../utils/calorieCalculatorFunctions/tdeeCalc";
+import macroSplitCalc from "../../utils/calorieCalculatorFunctions/macroSplitCalc";
+import calorieBudgetCalc from "../../utils/calorieCalculatorFunctions/calorieBudget";
 
 const schema = yup
   .object({
@@ -58,6 +60,10 @@ export default function CalorieForm() {
     const personsBMR = bmrCalc(gender, age, personWeight, personHeight);
     const personsTDEE = tdeeCalc(personsBMR, activityLevel, goal);
     console.log(Math.floor(personsTDEE));
+    const macros = macroSplitCalc(personsTDEE, personWeight);
+    console.log(macros);
+    const calorieBudget = calorieBudgetCalc(personsTDEE);
+    console.log(calorieBudget);
   }
 
   return (
