@@ -71,16 +71,14 @@ export default function CalorieForm() {
     const personsBMR = bmrCalc(gender, age, personWeight, personHeight);
     const personsTDEE = tdeeCalc(personsBMR, activityLevel, goal);
     const tdee = Math.floor(personsTDEE);
-    console.log(Math.floor(personsTDEE));
 
     updateCalories(tdee);
 
     const macros = macroSplitCalc(personsTDEE, personWeight);
-    console.log(macros);
 
     updateMacros(macros);
+
     const calorieBudget = calorieBudgetCalc(personsTDEE);
-    console.log(calorieBudget);
 
     updateWeeklyBudget(calorieBudget);
   }
