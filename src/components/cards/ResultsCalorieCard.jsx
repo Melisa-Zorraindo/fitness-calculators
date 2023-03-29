@@ -31,7 +31,7 @@ export default function ResultsCalorieCard() {
           Carbs: <span>{carbs}</span> g
         </p>
         <p>
-          Weekly calorie budget: <span>{weeklyBudget}</span> Kcal
+          Weekly budget: <span>{weeklyBudget}</span> Kcal
         </p>
       </div>
     </StyledResultsCard>
