@@ -19,19 +19,19 @@ export default function ResultsCalorieCard() {
       <div className="innerBox">
         <h2>Results</h2>
         <p>
-          Calories: <span>{calories}</span>{" "}
+          Calories: <span>{calories}</span> Kcal
         </p>
         <p>
-          Protein: <span>{protein}</span>{" "}
+          Protein: <span>{protein}</span> g
         </p>
         <p>
-          Fats: <span>{fats}</span>{" "}
+          Fats: <span>{fats}</span> g
         </p>
         <p>
-          Carbs: <span>{carbs}</span>{" "}
+          Carbs: <span>{carbs}</span> g
         </p>
         <p>
-          Weekly calorie budget: <span>{weeklyBudget}</span>{" "}
+          Weekly calorie budget: <span>{weeklyBudget}</span> Kcal
         </p>
       </div>
     </StyledResultsCard>
