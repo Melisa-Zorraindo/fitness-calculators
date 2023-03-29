@@ -3,6 +3,8 @@ import { Info } from "react-feather";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import bmrCalc from "../../utils/calorieCalculatorFunctions/bmrCalc";
+import tdeeCalc from "../../utils/calorieCalculatorFunctions/tdeeCalc";
 
 const schema = yup
   .object({
@@ -45,8 +47,17 @@ export default function CalorieForm() {
     resolver: yupResolver(schema),
   });
 
-  function onSubmit(data) {
-    console.log(data);
+  function onSubmit({
+    gender,
+    age,
+    personWeight,
+    personHeight,
+    activityLevel,
+    goal,
+  }) {
+    const personsBMR = bmrCalc(gender, age, personWeight, personHeight);
+    const personsTDEE = tdeeCalc(personsBMR, activityLevel, goal);
+    console.log(Math.floor(personsTDEE));
   }
 
   return (
@@ -66,8 +77,8 @@ export default function CalorieForm() {
             })}
           >
             <option value="">Choose gender</option>
-            <option>Female</option>
-            <option>Male</option>
+            <option value={"female"}>Female</option>
+            <option value={"male"}>Male</option>
           </select>
           <p className="validation-error">{errors.gender?.message}</p>
         </div>
@@ -120,10 +131,10 @@ export default function CalorieForm() {
             {...register("activityLevel", { required: true })}
           >
             <option value={""}>Choose activity level</option>
-            <option value={2}>Sedentary (office job)</option>
-            <option value={3}>Light exercise (1-2 days a week)</option>
-            <option value={4}>Moderate exercise (3-5 days a week)</option>
-            <option value={5}>Heavy exercise (6-7 days a week)</option>
+            <option value={1.2}>Sedentary (office job)</option>
+            <option value={1.375}>Light exercise (1-2 days a week)</option>
+            <option value={1.55}>Moderate exercise (3-5 days a week)</option>
+            <option value={1.725}>Heavy exercise (6-7 days a week)</option>
           </select>
           <p className="validation-error">{errors.activityLevel?.message}</p>
         </div>
@@ -136,9 +147,11 @@ export default function CalorieForm() {
             {...register("goal", { required: true })}
           >
             <option value={""}>Choose goal</option>
-            <option value={"mildlose"}>Lose weight</option>
+            <option value={"moderateLose"}>Moderate weight loss</option>
+            <option value={"mildLose"}>Mild weight loss</option>
             <option value={"maintain"}>Maintain weight</option>
-            <option value={"mildgain"}>Gain weight</option>
+            <option value={"mildGain"}>Mild weight gain</option>
+            <option value={"moderateGain"}>Moderate weight gain</option>
           </select>
           <p className="validation-error">{errors.goal?.message}</p>
         </div>
