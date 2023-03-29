@@ -12,7 +12,7 @@ export default function ResultsLiftingCard() {
   );
 
   return (
-    <StyledResultsCard activeBackground={oneRm}>
+    <StyledResultsCard activeBackground={oneRm} id="resultsLiftingCard">
       <div className="innerBox">
         <h2>Results</h2>
         <p>
