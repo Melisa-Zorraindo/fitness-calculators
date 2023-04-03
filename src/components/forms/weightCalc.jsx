@@ -1,5 +1,5 @@
 import PrimaryCTA from "../buttons/primaryButton";
-import { Info } from "react-feather";
+import InfoButton from "../buttons/infoButton";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -77,9 +77,7 @@ export default function LiftingForm() {
 
   return (
     <>
-      <button className="info-btn">
-        <Info size={"2rem"} />
-      </button>
+      <InfoButton />
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="field-block">
           <label htmlFor="lifted-weight">I lifted</label>

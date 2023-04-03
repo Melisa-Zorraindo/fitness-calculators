@@ -7,18 +7,6 @@ export const StyledForm = styled.div`
   padding: 2rem;
   position: relative;
 
-  .info-btn {
-    position: absolute;
-    top: -2rem;
-    width: 4rem;
-    height: 4rem;
-    background: ${({ theme }) => theme.color.accent};
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 1;
-  }
-
   .instructions {
     position: absolute;
     top: 0;
