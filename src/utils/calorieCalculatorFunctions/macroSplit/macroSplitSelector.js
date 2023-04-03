@@ -1,11 +1,11 @@
 import macroSplitCalc from "./macroSplitCalc";
 import ketoSplitCalc from "./ketoSplitCalc";
-import whoSplitCalc from "./whoSplitCalc";
+import balancedSplitCalc from "./balancedSplitCalc";
 
 export default function macroSplitSelector(macroSplit, tdee, weight) {
   switch (macroSplit) {
-    case "who":
-      return whoSplitCalc(tdee);
+    case "balanced":
+      return balancedSplitCalc(tdee);
     case "weightlifting":
       return macroSplitCalc(tdee, weight);
     case "keto":

@@ -187,8 +187,8 @@ export default function CalorieForm() {
             {...register("macroSplit", { required: false })}
           >
             <option value={""}>Choose macro split (optional)</option>
-            <option value={"who"}>WHO recommended</option>
             <option value={"weightlifting"}>Weightlifting</option>
+            <option value={"balanced"}>Balanced</option>
             <option value={"keto"}>Keto</option>
           </select>
         </div>
