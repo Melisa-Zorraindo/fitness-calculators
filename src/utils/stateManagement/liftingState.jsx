@@ -12,10 +12,12 @@ export const useLiftingStore = create((set) => ({
   updateOneRm: (value) => {
     set(() => ({ oneRm: value }));
     const resultsLiftingCard = document.querySelector("#resultsLiftingCard");
-    resultsLiftingCard.scrollIntoView({
+    const scrollTop =
+      resultsLiftingCard.offsetTop -
+      2 * parseFloat(getComputedStyle(resultsLiftingCard).fontSize);
+    window.scrollTo({
+      top: scrollTop,
       behavior: "smooth",
-      block: "start",
-      inline: "end",
     });
   },
   updateWeightToLift: (value) => set(() => ({ weightToLift: value })),

@@ -25,7 +25,7 @@ export default function ResultsCalorieCard() {
 
   return (
     <>
-      <StyledResultsCard activeBackground={calories} id="resultsLiftingCard">
+      <StyledResultsCard activeBackground={calories} id="resultsCalorieCard">
         {calories !== 0 && <InfoButton />}
         <div className="innerBox">
           <h2>Results</h2>

@@ -17,11 +17,13 @@ export const useCalorieStore = create((set) => ({
   },
   updateCalories: (value) => {
     set(() => ({ calories: value }));
-    const resultsLiftingCard = document.querySelector("#resultsLiftingCard");
-    resultsLiftingCard.scrollIntoView({
+    const resultsCalorieCard = document.querySelector("#resultsCalorieCard");
+    const scrollTop =
+      resultsCalorieCard.offsetTop -
+      2 * parseFloat(getComputedStyle(resultsCalorieCard).fontSize);
+    window.scrollTo({
+      top: scrollTop,
       behavior: "smooth",
-      block: "start",
-      inline: "end",
     });
   },
   updateMacros: ({ carbs, fat, protein }) =>
