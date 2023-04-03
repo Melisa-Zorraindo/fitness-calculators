@@ -1,18 +1,25 @@
 import { StyledResultsCard } from "../../styles/components/cards/resultCards.styles";
 import { useCalorieStore } from "../../utils/stateManagement/calorieState";
 import { shallow } from "zustand/shallow";
+import { useEffect } from "react";
 
 export default function ResultsCalorieCard() {
-  const { calories, protein, fats, carbs, weeklyBudget } = useCalorieStore(
-    (state) => ({
-      calories: state.calories,
-      protein: state.protein,
-      fats: state.fats,
-      carbs: state.carbs,
-      weeklyBudget: state.weeklyBudget,
-    }),
-    shallow
-  );
+  const { calories, protein, fats, carbs, weeklyBudget, resetValues } =
+    useCalorieStore(
+      (state) => ({
+        calories: state.calories,
+        protein: state.protein,
+        fats: state.fats,
+        carbs: state.carbs,
+        weeklyBudget: state.weeklyBudget,
+        resetValues: state.resetValues,
+      }),
+      shallow
+    );
+
+  useEffect(() => {
+    resetValues();
+  }, []);
 
   return (
     <StyledResultsCard activeBackground={calories} id="resultsLiftingCard">

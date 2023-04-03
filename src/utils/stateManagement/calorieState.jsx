@@ -6,6 +6,15 @@ export const useCalorieStore = create((set) => ({
   fats: 0,
   carbs: 0,
   weeklyBudget: 0,
+  resetValues: () => {
+    set(() => ({
+      calories: 0,
+      protein: 0,
+      fats: 0,
+      carbs: 0,
+      weeklyBudget: 0,
+    }));
+  },
   updateCalories: (value) => {
     set(() => ({ calories: value }));
     const resultsLiftingCard = document.querySelector("#resultsLiftingCard");

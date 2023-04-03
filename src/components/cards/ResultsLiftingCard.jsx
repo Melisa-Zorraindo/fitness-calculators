@@ -1,15 +1,21 @@
 import { StyledResultsCard } from "../../styles/components/cards/resultCards.styles";
 import { useLiftingStore } from "../../utils/stateManagement/liftingState";
 import { shallow } from "zustand/shallow";
+import { useEffect } from "react";
 
 export default function ResultsLiftingCard() {
-  const { oneRm, weightToLift } = useLiftingStore(
+  const { oneRm, weightToLift, resetValues } = useLiftingStore(
     (state) => ({
       oneRm: state.oneRm,
       weightToLift: state.weightToLift,
+      resetValues: state.resetValues,
     }),
     shallow
   );
+
+  useEffect(() => {
+    resetValues();
+  }, []);
 
   return (
     <StyledResultsCard activeBackground={oneRm} id="resultsLiftingCard">
