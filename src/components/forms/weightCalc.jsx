@@ -11,10 +11,9 @@ const schema = yup
   .object({
     liftedWeight: yup
       .number()
-      .typeError("This is a required field")
+      .typeError("Enter amount in KG")
       .positive()
-      .integer()
-      .min(1, "Number of reps cannot be lower than 1")
+      .min(1, "Kilos cannot be lower than 1")
       .required(),
     liftedReps: yup
       .number()
@@ -87,7 +86,6 @@ export default function LiftingForm() {
           <input
             name="lifted-weight"
             id="lifted-weight"
-            type="number"
             placeholder="Enter amount in kg"
             aria-label="Enter the amount of weight lifted in kilograms"
             {...register("liftedWeight", {
