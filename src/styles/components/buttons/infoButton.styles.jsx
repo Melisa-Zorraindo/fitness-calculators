@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledInfoButton = styled.button`
   position: absolute;
   top: -2rem;
+  left: 2rem;
   width: 4rem;
   height: 4rem;
   background: ${({ theme }) => theme.color.accent};

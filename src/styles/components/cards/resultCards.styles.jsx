@@ -9,6 +9,7 @@ export const StyledResultsCard = styled.div`
   width: 320px;
   height: fit-content;
   border-radius: 0.8rem;
+  position: relative;
 
   .innerBox {
     background-color: ${({ theme }) => theme.color.contrast};

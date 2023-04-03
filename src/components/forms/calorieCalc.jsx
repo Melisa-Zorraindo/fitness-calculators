@@ -1,6 +1,5 @@
 import PrimaryCTA from "../buttons/primaryButton";
 import InfoButton from "../buttons/infoButton";
-// import { Info } from "react-feather";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -87,9 +86,6 @@ export default function CalorieForm() {
 
   return (
     <>
-      {/*   <button className="info-btn">
-        <Info size={"2rem"} />
-      </button> */}
       <InfoButton />
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="field-block">
