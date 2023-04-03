@@ -1,4 +1,5 @@
 import PrimaryCTA from "../buttons/primaryButton";
+import ExtraUserInfo from "../extraUserInformation";
 import InfoButton from "../buttons/infoButton";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -163,40 +164,25 @@ export default function LiftingForm() {
         </div>
 
         <PrimaryCTA text={"calculate"} />
-        <div className="instructions">
-          <ol>
-            <li>
-              Enter the weight you lifted in kilograms (kg) in the
-              <span> "I lifted" </span>
-              field.
-            </li>
-            <li>
-              Enter the number of reps you completed in the <span> "For" </span>
-              field.
-            </li>
-            <li>
-              Select the RPE (Rate of Perceived Exertion) you experienced from
-              the dropdown menu in the <span> "My RPE was" </span>field.
-            </li>
-            <li>
-              Enter the number of reps you want to endure in the{" "}
-              <span> "I want to endure" </span>field.
-            </li>
-            <li>
-              Select the desired RPE you want to achieve from the dropdown menu
-              in the<span> "At an RPE of" </span>field.
-            </li>
-            <li>
-              Click the<span> "Calculate" </span>button to generate the
-              recommended weight to lift for the desired number of reps and RPE.
-            </li>
-          </ol>
-          <p>
-            <span> Note: </span>The RPE scale ranges from 6.5 (very light) to 10
-            (maximum effort), with increments of 0.5. Choose the RPE that most
-            closely matches your perceived level of exertion during the lift.
-          </p>
-        </div>
+        <ExtraUserInfo
+          title={"What does RPE mean?"}
+          text={[
+            {
+              type: "",
+              description: "RPE stands for Rate of Perceived Exertion.",
+            },
+            {
+              type: "",
+              description:
+                "The RPE scale ranges from 6.5 (very light) to 10 (maximum effort), with increments of 0.5.",
+            },
+            {
+              type: "",
+              description:
+                "Choose the RPE that most closely matches your perceived level of exertion during the lift.",
+            },
+          ]}
+        />
       </form>
     </>
   );

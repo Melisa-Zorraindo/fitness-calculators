@@ -7,36 +7,6 @@ export const StyledForm = styled.div`
   padding: 2rem;
   position: relative;
 
-  .instructions {
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 0.8rem;
-    padding: 2rem 1rem;
-    background: ${({ theme }) => theme.color.onFocus};
-    color: ${({ theme }) => theme.color.main};
-    display: none;
-    height: 100%;
-
-    ol {
-      padding: 1rem;
-    }
-
-    li {
-      padding: 0.5rem 0;
-
-      span {
-        font-weight: 700;
-      }
-    }
-
-    p {
-      span {
-        font-weight: 700;
-      }
-    }
-  }
-
   form {
     width: 100%;
     display: flex;

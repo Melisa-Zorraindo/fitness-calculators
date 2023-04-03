@@ -1,5 +1,6 @@
 import PrimaryCTA from "../buttons/primaryButton";
 import InfoButton from "../buttons/infoButton";
+import ExtraUserInfo from "../extraUserInformation";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -192,41 +193,26 @@ export default function CalorieForm() {
           </select>
         </div>
         <PrimaryCTA text={"calculate"} />
-        <div className="instructions">
-          <ol>
-            <li>
-              Choose your <span> gender </span> from the drop-down menu.
-            </li>
-            <li>
-              Enter your <span> age </span> in years in the corresponding field.
-            </li>
-            <li>
-              Enter your weight in kilograms in the <span> your weight </span>{" "}
-              field.
-            </li>
-            <li>
-              Enter your height in centimeters in the <span> your height </span>{" "}
-              field.
-            </li>
-            <li>
-              Select your <span> activity level </span> from the drop-down menu.
-            </li>
-            <li>
-              Select your <span> goal </span> from the drop-down menu.
-            </li>
-            <li>
-              Click on the <span> calculate </span> button to get your estimated
-              daily calorie needs based on the information you provided.
-            </li>
-            <p>
-              <span>Note: </span>keep in mind that the results are only an
-              estimate, and you may need to adjust your calorie intake based on
-              your individual needs and goals. Also, please make sure to consult
-              with a healthcare professional before making any significant
-              changes to your macro or exercise routine.
-            </p>
-          </ol>
-        </div>
+        <ExtraUserInfo
+          title={"How to choose your macro split"}
+          text={[
+            {
+              type: "Weightlifting: ",
+              description:
+                "aim for 1.6 g - 2g of protein and 0.8g - 1g of fats per kilo of body weight, with the remaining calories coming from carbohydrates. This option will set the calculator to the higher end of the recommended range for protein and fat intake.",
+            },
+            {
+              type: "Keto diet: ",
+              description:
+                "aim for 5 - 10% carbs, 10 - 15% protein, and 75 - 80 % fats. The percentage split used in this calculator is 10% carbs, 15% protein, and 75% fats.",
+            },
+            {
+              type: "Balanced: ",
+              description:
+                "aim for 45 - 65% carbs, 10 - 35% protein, and 20 - 30% fats. The percentage split used in this calculator is 55% carbs, 15% protein, and 30% fats.",
+            },
+          ]}
+        />
       </form>
     </>
   );

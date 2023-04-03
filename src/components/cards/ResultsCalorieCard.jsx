@@ -1,9 +1,9 @@
 import { StyledResultsCard } from "../../styles/components/cards/resultCards.styles";
 import InfoButton from "../buttons/infoButton";
+import ExtraUserInfo from "../extraUserInformation";
 import { useCalorieStore } from "../../utils/stateManagement/calorieState";
 import { shallow } from "zustand/shallow";
 import { useEffect } from "react";
-import { Info } from "react-feather";
 
 export default function ResultsCalorieCard() {
   const { calories, protein, fats, carbs, weeklyBudget, resetValues } =
@@ -27,6 +27,18 @@ export default function ResultsCalorieCard() {
     <>
       <StyledResultsCard activeBackground={calories} id="resultsCalorieCard">
         {calories !== 0 && <InfoButton />}
+        {calories !== 0 && (
+          <ExtraUserInfo
+            title={"Note"}
+            text={[
+              {
+                type: "",
+                description:
+                  "Keep in mind that the results are only an estimate, and you may need to adjust your calorie intake based on your individual needs and goals. Also, please make sure to consult with a healthcare professional before making any significant changes to your macro or exercise routine.",
+              },
+            ]}
+          />
+        )}
         <div className="innerBox">
           <h2>Results</h2>
           <p>
