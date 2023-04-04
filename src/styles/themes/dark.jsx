@@ -1,4 +1,5 @@
 import { ThemeProvider } from "styled-components";
+import { media, fonts } from "../globalStyles";
 
 const dark = {
   color: {
@@ -9,10 +10,8 @@ const dark = {
     onFocus: "#fbffc8",
     onFocusContrast: "#00ffff",
   },
-  break: {
-    medium: "820px",
-    small: "550px",
-  },
+  media: media,
+  fonts: fonts,
 };
 
 export const Theme = ({ children }) => (

@@ -16,14 +16,14 @@ export const StyledForm = styled.div`
       display: flex;
       flex-direction: column;
       margin: 2rem 0;
-      font-size: 16px;
-      font-weight: 700;
+      font-size: ${({ theme }) => theme.fonts.smallSize};
+      font-weight: ${({ theme }) => theme.fonts.bold};
 
       input,
       select {
         height: 3rem;
-        font-family: "Urbanist", sans-serif;
-        font-size: 18px;
+        font-family: ${({ theme }) => theme.fonts.family};
+        font-size: ${({ theme }) => theme.fonts.regularSize};
         border: none;
         border-bottom: 1px solid ${({ theme }) => theme.color.support};
         color: ${({ theme }) => theme.color.support};
@@ -46,7 +46,7 @@ export const StyledForm = styled.div`
     margin-top: 4rem;
 
     span {
-      font-weight: 700;
+      font-weight: ${({ theme }) => theme.fonts.bold};
     }
   }
 `;

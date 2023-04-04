@@ -21,13 +21,13 @@ export const StyledPage = styled.main`
     height: fit-content;
   }
 
-  @media (max-width: ${({ theme }) => theme.break.medium}) {
+  @media ${(props) => props.theme.media.medium} {
     a {
       flex: 0 0 70%;
     }
   }
 
-  @media (max-width: ${({ theme }) => theme.break.small}) {
+  @media ${(props) => props.theme.media.small} {
     a {
       flex: 0 0 100%;
     }

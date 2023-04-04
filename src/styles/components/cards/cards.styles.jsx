@@ -29,13 +29,13 @@ export const StyledCard = styled.div`
     max-width: 400px;
   }
 
-  @media (max-width: ${({ theme }) => theme.break.medium}) {
+  @media ${(props) => props.theme.media.medium} {
     img {
       width: 5.25rem;
     }
   }
 
-  @media (max-width: ${({ theme }) => theme.break.small}) {
+  @media ${(props) => props.theme.media.small} {
     img {
       width: 4.25rem;
     }

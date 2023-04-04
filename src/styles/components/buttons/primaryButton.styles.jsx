@@ -5,9 +5,9 @@ export const StyledCTA = styled.button`
   border: none;
   padding: 0.8rem 2rem;
   border-radius: 2rem;
-  font-weight: 700;
-  font-family: "Urbanist", sans-serif;
-  font-size: 20px;
+  font-weight: ${({ theme }) => theme.fonts.bold};
+  font-family: ${({ theme }) => theme.fonts.family};
+  font-size: ${({ theme }) => theme.fonts.largeSize};
   margin-top: 2rem;
   cursor: pointer;
 
@@ -15,7 +15,7 @@ export const StyledCTA = styled.button`
     background: ${({ theme }) => theme.color.onFocusContrast};
   }
 
-  @media (max-width: ${({ theme }) => theme.break.medium}) {
-    font-size: 18px;
+  @media ${(props) => props.theme.media.small} {
+    font-size: ${({ theme }) => theme.fonts.smallSize};
   }
 `;

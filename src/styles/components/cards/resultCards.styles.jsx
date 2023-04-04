@@ -18,11 +18,11 @@ export const StyledResultsCard = styled.div`
     padding: 2rem;
 
     span {
-      font-weight: 700;
+      font-weight: ${({ theme }) => theme.fonts.bold};
     }
   }
 
-  @media (max-width: ${({ theme }) => theme.break.small}) {
+  @media ${(props) => props.theme.media.small} {
     width: auto;
   }
 `;
