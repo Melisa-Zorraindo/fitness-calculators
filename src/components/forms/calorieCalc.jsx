@@ -97,8 +97,6 @@ export default function CalorieForm() {
     (button) => button.id === "calorieFormHowTo"
   );
 
-  console.log(targetButton.active);
-
   return (
     <>
       <InfoButton id="calorieFormHowTo" />

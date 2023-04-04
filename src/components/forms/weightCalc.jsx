@@ -88,8 +88,6 @@ export default function LiftingForm() {
     (button) => button.id === "liftingFormHowTo"
   );
 
-  console.log(targetButton.active);
-
   return (
     <>
       <InfoButton id="liftingFormHowTo" />
