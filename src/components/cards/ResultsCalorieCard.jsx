@@ -2,6 +2,7 @@ import { StyledResultsCard } from "../../styles/components/cards/resultCards.sty
 import InfoButton from "../buttons/infoButton";
 import ExtraUserInfo from "../extraUserInformation";
 import { useCalorieStore } from "../../utils/stateManagement/calorieState";
+import { useInformationStore } from "../../utils/stateManagement/informationState/informationState";
 import { shallow } from "zustand/shallow";
 import { useEffect } from "react";
 
@@ -23,42 +24,51 @@ export default function ResultsCalorieCard() {
     resetValues();
   }, []);
 
+  const { infoButtons } = useInformationStore(
+    (state) => ({
+      infoButtons: state.infoButtons,
+    }),
+    shallow
+  );
+
+  const targetButton = infoButtons.find(
+    (button) => button.id === "resultsCalorieExtraInfo"
+  );
+
   return (
-    <>
-      <StyledResultsCard activeBackground={calories} id="resultsCalorieCard">
-        {calories !== 0 && <InfoButton id="resultsCalorieExtraInfo" />}
-        {calories !== 0 && (
-          <ExtraUserInfo
-            id="resultsCalorieNote"
-            title={"Note"}
-            text={[
-              {
-                type: "",
-                description:
-                  "Keep in mind that the results are only an estimate, and you may need to adjust your calorie intake based on your individual needs and goals. Also, please make sure to consult with a healthcare professional before making any significant changes to your macro or exercise routine.",
-              },
-            ]}
-          />
-        )}
-        <div className="innerBox">
-          <h2>Results</h2>
-          <p>
-            Calories: <span>{calories}</span> Kcal
-          </p>
-          <p>
-            Protein: <span>{protein}</span> g
-          </p>
-          <p>
-            Fats: <span>{fats}</span> g
-          </p>
-          <p>
-            Carbs: <span>{carbs}</span> g
-          </p>
-          <p>
-            Weekly budget: <span>{weeklyBudget}</span> Kcal
-          </p>
-        </div>
-      </StyledResultsCard>
-    </>
+    <StyledResultsCard activeBackground={calories} id="resultsCalorieCard">
+      {calories !== 0 && <InfoButton id="resultsCalorieExtraInfo" />}
+      {targetButton.active && (
+        <ExtraUserInfo
+          id="resultsCalorieNote"
+          title={"Note"}
+          text={[
+            {
+              type: "",
+              description:
+                "Keep in mind that the results are only an estimate, and you may need to adjust your calorie intake based on your individual needs and goals. Also, please make sure to consult with a healthcare professional before making any significant changes to your macro or exercise routine.",
+            },
+          ]}
+        />
+      )}
+      <div className="innerBox">
+        <h2>Results</h2>
+        <p>
+          Calories: <span>{calories}</span> Kcal
+        </p>
+        <p>
+          Protein: <span>{protein}</span> g
+        </p>
+        <p>
+          Fats: <span>{fats}</span> g
+        </p>
+        <p>
+          Carbs: <span>{carbs}</span> g
+        </p>
+        <p>
+          Weekly budget: <span>{weeklyBudget}</span> Kcal
+        </p>
+      </div>
+    </StyledResultsCard>
   );
 }

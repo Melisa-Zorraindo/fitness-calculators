@@ -9,6 +9,7 @@ import tdeeCalc from "../../utils/calorieCalculatorFunctions/tdeeCalc";
 import macroSplitSelector from "../../utils/calorieCalculatorFunctions/macroSplit/macroSplitSelector";
 import calorieBudgetCalc from "../../utils/calorieCalculatorFunctions/calorieBudget";
 import { useCalorieStore } from "../../utils/stateManagement/calorieState";
+import { useInformationStore } from "../../utils/stateManagement/informationState/informationState";
 import { shallow } from "zustand/shallow";
 
 const schema = yup
@@ -84,6 +85,19 @@ export default function CalorieForm() {
 
     updateWeeklyBudget(calorieBudget);
   }
+
+  const { infoButtons } = useInformationStore(
+    (state) => ({
+      infoButtons: state.infoButtons,
+    }),
+    shallow
+  );
+
+  const targetButton = infoButtons.find(
+    (button) => button.id === "calorieFormHowTo"
+  );
+
+  console.log(targetButton.active);
 
   return (
     <>
@@ -193,6 +207,8 @@ export default function CalorieForm() {
           </select>
         </div>
         <PrimaryCTA text={"calculate"} />
+      </form>
+      {targetButton.active && (
         <ExtraUserInfo
           id="calorieFormNote"
           title={"How to choose your macro split"}
@@ -214,7 +230,7 @@ export default function CalorieForm() {
             },
           ]}
         />
-      </form>
+      )}
     </>
   );
 }

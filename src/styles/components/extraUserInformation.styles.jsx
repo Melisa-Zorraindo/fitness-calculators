@@ -8,7 +8,6 @@ export const StyledUserInfo = styled.div`
   padding: 2rem 1rem;
   background: ${({ theme }) => theme.color.contrast};
   color: ${({ theme }) => theme.color.support};
-  display: none;
   height: 100%;
 
   p {

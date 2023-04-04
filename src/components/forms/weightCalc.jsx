@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { coefficients } from "../../utils/liftingCoefficients";
 import { useLiftingStore } from "../../utils/stateManagement/liftingState";
+import { useInformationStore } from "../../utils/stateManagement/informationState/informationState";
 import { shallow } from "zustand/shallow";
 
 const schema = yup
@@ -75,6 +76,19 @@ export default function LiftingForm() {
 
     updateWeightToLift(weightToLift);
   }
+
+  const { infoButtons } = useInformationStore(
+    (state) => ({
+      infoButtons: state.infoButtons,
+    }),
+    shallow
+  );
+
+  const targetButton = infoButtons.find(
+    (button) => button.id === "liftingFormHowTo"
+  );
+
+  console.log(targetButton.active);
 
   return (
     <>
@@ -162,8 +176,9 @@ export default function LiftingForm() {
           </select>
           <p className="validation-error">{errors.desiredRpe?.message}</p>
         </div>
-
         <PrimaryCTA text={"calculate"} />
+      </form>
+      {targetButton.active && (
         <ExtraUserInfo
           id="liftingFormNote"
           title={"What does RPE mean?"}
@@ -184,7 +199,7 @@ export default function LiftingForm() {
             },
           ]}
         />
-      </form>
+      )}
     </>
   );
 }
