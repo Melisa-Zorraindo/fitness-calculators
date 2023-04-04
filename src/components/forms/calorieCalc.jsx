@@ -208,7 +208,6 @@ export default function CalorieForm() {
       </form>
       {targetButton.active && (
         <ExtraUserInfo
-          id="calorieFormNote"
           title={"How to choose your macro split"}
           text={[
             {

@@ -48,7 +48,6 @@ export default function ResultsCalorieCard() {
       {calories !== 0 && <InfoButton id="resultsCalorieExtraInfo" />}
       {targetButton.active && (
         <ExtraUserInfo
-          id="resultsCalorieNote"
           title={"Note"}
           text={[
             {

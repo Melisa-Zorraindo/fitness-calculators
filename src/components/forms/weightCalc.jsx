@@ -178,7 +178,6 @@ export default function LiftingForm() {
       </form>
       {targetButton.active && (
         <ExtraUserInfo
-          id="liftingFormNote"
           title={"What does RPE mean?"}
           text={[
             {
