@@ -11,6 +11,10 @@ export const StyledCTA = styled.button`
   margin-top: 2rem;
   cursor: pointer;
 
+  &:hover {
+    background: ${({ theme }) => theme.color.onFocusContrast};
+  }
+
   @media (max-width: ${({ theme }) => theme.break.medium}) {
     font-size: 18px;
   }

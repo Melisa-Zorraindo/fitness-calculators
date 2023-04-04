@@ -18,5 +18,9 @@ export const StyledHeader = styled.header`
     color: ${({ theme }) => theme.color.support};
     padding: 0.7rem;
     cursor: pointer;
+
+    &:hover {
+      background: ${({ theme }) => theme.color.main};
+    }
   }
 `;

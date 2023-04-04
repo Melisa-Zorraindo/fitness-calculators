@@ -6,4 +6,8 @@ export const StyledIconLink = styled.div`
   background: ${({ theme }) => theme.color.contrast};
   color: ${({ theme }) => theme.color.support};
   padding: 0.7rem;
+
+  &:hover {
+    background: ${({ theme }) => theme.color.main};
+  }
 `;

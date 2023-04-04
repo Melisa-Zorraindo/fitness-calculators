@@ -11,4 +11,8 @@ export const StyledInfoButton = styled.button`
   border-radius: 50%;
   cursor: pointer;
   z-index: 1;
+
+  &:hover {
+    background: ${({ theme }) => theme.color.onFocusContrast};
+  }
 `;
