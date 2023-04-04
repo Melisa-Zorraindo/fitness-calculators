@@ -87,7 +87,7 @@ export default function CalorieForm() {
 
   return (
     <>
-      <InfoButton />
+      <InfoButton id="calorieFormHowTo" />
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="field-block">
           <label htmlFor="gender">Your gender</label>
@@ -194,6 +194,7 @@ export default function CalorieForm() {
         </div>
         <PrimaryCTA text={"calculate"} />
         <ExtraUserInfo
+          id="calorieFormNote"
           title={"How to choose your macro split"}
           text={[
             {

@@ -78,7 +78,7 @@ export default function LiftingForm() {
 
   return (
     <>
-      <InfoButton />
+      <InfoButton id="liftingFormHowTo" />
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="field-block">
           <label htmlFor="lifted-weight">I lifted</label>
@@ -165,6 +165,7 @@ export default function LiftingForm() {
 
         <PrimaryCTA text={"calculate"} />
         <ExtraUserInfo
+          id="liftingFormNote"
           title={"What does RPE mean?"}
           text={[
             {

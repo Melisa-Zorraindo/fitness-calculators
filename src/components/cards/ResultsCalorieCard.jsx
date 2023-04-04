@@ -26,9 +26,10 @@ export default function ResultsCalorieCard() {
   return (
     <>
       <StyledResultsCard activeBackground={calories} id="resultsCalorieCard">
-        {calories !== 0 && <InfoButton />}
+        {calories !== 0 && <InfoButton id="resultsCalorieExtraInfo" />}
         {calories !== 0 && (
           <ExtraUserInfo
+            id="resultsCalorieNote"
             title={"Note"}
             text={[
               {
