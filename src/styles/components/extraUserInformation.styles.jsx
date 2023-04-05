@@ -1,4 +1,10 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { useThemesStore } from "../../utils/stateManagement/themesState";
+
+const titlesLightMode = css`
+  color: ${({ theme }) => theme.color.support};
+  font-weight: ${({ theme }) => theme.fonts.bold};
+`;
 
 export const StyledUserInfo = styled.div`
   position: absolute;
@@ -27,7 +33,10 @@ export const StyledUserInfo = styled.div`
 
   p {
     span {
-      color: ${({ theme }) => theme.color.onFocusContrast};
+      color: ${({ theme }) =>
+        useThemesStore.getState().theme
+          ? theme.color.onFocusContrast
+          : titlesLightMode};
     }
   }
 `;
