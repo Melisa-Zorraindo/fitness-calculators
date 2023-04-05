@@ -11,6 +11,20 @@ export const StyledUserInfo = styled.div`
   height: 100%;
   overflow: scroll;
 
+  ::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-corner {
+    background: ${({ theme }) => theme.color.contrast};
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 0.8rem;
+  }
+
   p {
     span {
       color: ${({ theme }) => theme.color.onFocusContrast};
