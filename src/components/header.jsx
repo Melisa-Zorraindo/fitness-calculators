@@ -1,14 +1,12 @@
 import { StyledHeader } from "../styles/components/header.styles";
 import Logo from "./logo";
-import { Sun } from "react-feather";
+import ThemeToggle from "./buttons/themeToggle";
 
 export default function Header() {
   return (
     <StyledHeader>
       <Logo />
-      <button>
-        <Sun />
-      </button>
+      <ThemeToggle />
     </StyledHeader>
   );
 }
