@@ -9,6 +9,7 @@ export const StyledUserInfo = styled.div`
   background: ${({ theme }) => theme.color.contrast};
   color: ${({ theme }) => theme.color.support};
   height: 100%;
+  overflow: scroll;
 
   p {
     span {

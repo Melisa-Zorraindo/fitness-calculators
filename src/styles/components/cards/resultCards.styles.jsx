@@ -22,6 +22,10 @@ export const StyledResultsCard = styled.div`
     }
   }
 
+  @media ${(props) => props.theme.media.medium} {
+    margin-top: 2rem;
+  }
+
   @media ${(props) => props.theme.media.small} {
     width: auto;
   }

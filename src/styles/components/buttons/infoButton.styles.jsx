@@ -15,4 +15,11 @@ export const StyledInfoButton = styled.button`
   &:hover {
     background: ${({ theme }) => theme.color.onFocusContrast};
   }
+
+  @media ${(props) => props.theme.media.tiny} {
+    top: -1.5rem;
+    left: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+  }
 `;

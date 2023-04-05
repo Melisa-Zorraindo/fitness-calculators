@@ -4,7 +4,6 @@ export const StyledPage = styled.main`
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  border: 1px solid white;
   gap: 1rem;
   margin: 4rem 0;
 
@@ -14,7 +13,7 @@ export const StyledPage = styled.main`
   }
 
   a {
-    flex: 0 0 40%;
+    flex: 0 0 45%;
     background: ${({ theme }) => theme.color.accent};
     border-radius: 0.8rem;
     margin: 4rem auto;

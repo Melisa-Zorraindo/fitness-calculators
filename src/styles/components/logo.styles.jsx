@@ -15,4 +15,10 @@ export const StyledLogo = styled.div`
     display: flex;
     flex-direction: column;
   }
+
+  @media ${(props) => props.theme.media.tiny} {
+    div {
+      display: none;
+    }
+  }
 `;

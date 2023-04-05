@@ -40,4 +40,8 @@ export const StyledCard = styled.div`
       width: 4.25rem;
     }
   }
+
+  @media ${(props) => props.theme.media.tiny} {
+    padding: 4rem 1rem 3rem;
+  }
 `;

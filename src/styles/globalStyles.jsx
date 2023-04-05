@@ -1,9 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 
 export const media = {
-  medium: "(max-width: 820px)",
+  medium: "(max-width: 785px)",
   small: "(max-width: 550px)",
-  tiny: "(max-width: 300px)",
+  tiny: "(max-width: 280px)",
 };
 
 export const fonts = {
@@ -12,6 +12,7 @@ export const fonts = {
   largeSize: "20px",
   regularSize: "18px",
   smallSize: "16px",
+  tinySize: "12px",
 };
 
 export const GlobalStyle = createGlobalStyle`
@@ -32,7 +33,6 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 body {
-  /* margin: 0; */
   max-width: 1280px;
   background-color: ${({ theme }) => theme.color.main};
   margin: 0 auto;

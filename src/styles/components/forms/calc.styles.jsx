@@ -6,6 +6,7 @@ export const StyledForm = styled.div`
   border-radius: 0.8rem;
   padding: 2rem;
   position: relative;
+  width: 384px;
 
   form {
     width: 100%;
@@ -47,6 +48,21 @@ export const StyledForm = styled.div`
 
     span {
       font-weight: ${({ theme }) => theme.fonts.bold};
+    }
+  }
+
+  @media ${(props) => props.theme.media.small} {
+    width: 100%;
+  }
+
+  @media ${(props) => props.theme.media.tiny} {
+    form {
+      .field-block {
+        input,
+        select {
+          font-size: ${({ theme }) => theme.fonts.tinySize};
+        }
+      }
     }
   }
 `;
