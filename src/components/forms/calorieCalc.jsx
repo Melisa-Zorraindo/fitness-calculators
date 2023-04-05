@@ -27,7 +27,6 @@ const schema = yup
       .number()
       .typeError("This is a required field")
       .positive()
-      .integer()
       .min(40, "Weight cannot be lower than 40KG")
       .max(160, "Weight cannot be higher than 160KG")
       .required(),
@@ -35,7 +34,6 @@ const schema = yup
       .number()
       .typeError("This is a required field")
       .positive()
-      .integer()
       .min(130, "Height cannot be lower than 130CM")
       .max(230, "Height cannot be higher than 230CM")
       .required(),
@@ -134,7 +132,6 @@ export default function CalorieForm() {
           <input
             name="person-weight"
             id="person-weight"
-            type="number"
             placeholder="Enter your weight in KG"
             aria-label="Enter your weight in KG"
             {...register("personWeight", { required: true, min: 40, max: 160 })}
@@ -146,7 +143,6 @@ export default function CalorieForm() {
           <input
             name="person-height"
             id="person-height"
-            type="number"
             placeholder="Enter your height in CM"
             aria-label="Enter your height in CM"
             {...register("personHeight", {
