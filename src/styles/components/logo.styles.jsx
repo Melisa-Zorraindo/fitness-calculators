@@ -7,7 +7,7 @@ export const StyledLogo = styled.div`
 
   svg {
     background: ${({ theme }) => theme.color.accent};
-    color: ${({ theme }) => theme.color.main};
+    color: #000;
     border-radius: 50%;
   }
 
