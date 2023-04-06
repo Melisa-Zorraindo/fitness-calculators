@@ -1,6 +1,7 @@
 import InfoButton from "../buttons/infoButton";
 import ExtraUserInfo from "../extraUserInformation";
 import CalorieFormMt from "../forms/calorieFormMt";
+import CalorieFormIm from "../forms/calorieFormIm";
 import MeasurementSystemSelector from "../measurementSystemSelector";
 import { useInformationStore } from "../../utils/stateManagement/informationState/informationState";
 import { shallow } from "zustand/shallow";
@@ -24,7 +25,7 @@ export default function CalorieCalculatorCard() {
     <>
       <InfoButton id="calorieFormHowTo" />
       <MeasurementSystemSelector system={system} setSystem={setSystem} />
-      {system === "metric" ? <CalorieFormMt /> : <div>Coming soon</div>}
+      {system === "metric" ? <CalorieFormMt /> : <CalorieFormIm />}
       {targetButton.active && (
         <ExtraUserInfo
           title={"How to choose your macro split"}
