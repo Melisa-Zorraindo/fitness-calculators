@@ -1,6 +1,6 @@
 import { StyledPage } from "../../styles/pages";
 import { StyledForm } from "../../styles/components/forms/calc.styles";
-import CalorieForm from "../../components/forms/calorieCalc";
+import CalorieCalculatorCard from "../../components/calculators/calorieCalculatorCard";
 import ResultsCalorieCard from "../../components/cards/ResultsCalorieCard";
 
 export default function CalorieCalculator() {
@@ -8,7 +8,7 @@ export default function CalorieCalculator() {
     <StyledPage>
       <StyledForm>
         <h1>Fuel your body!</h1>
-        <CalorieForm />
+        <CalorieCalculatorCard />
       </StyledForm>
       <ResultsCalorieCard />
     </StyledPage>

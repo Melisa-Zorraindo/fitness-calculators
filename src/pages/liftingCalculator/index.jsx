@@ -1,6 +1,6 @@
 import { StyledPage } from "../../styles/pages";
 import { StyledForm } from "../../styles/components/forms/calc.styles";
-import LiftingForm from "../../components/forms/weightCalc";
+import LiftingCalculatorCard from "../../components/calculators/liftingCalculatorCard";
 import ResultsLiftingCard from "../../components/cards/ResultsLiftingCard";
 
 export default function LiftingCalculator() {
@@ -8,7 +8,7 @@ export default function LiftingCalculator() {
     <StyledPage>
       <StyledForm>
         <h1>Power up your lifts!</h1>
-        <LiftingForm />
+        <LiftingCalculatorCard />
       </StyledForm>
       <ResultsLiftingCard />
     </StyledPage>

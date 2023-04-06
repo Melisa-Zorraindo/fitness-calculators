@@ -38,7 +38,7 @@ const schema = yup
   })
   .required();
 
-export default function LiftingForm() {
+export default function LiftingCalculatorCard() {
   const {
     register,
     handleSubmit,

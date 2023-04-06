@@ -42,7 +42,7 @@ const schema = yup
   })
   .required();
 
-export default function CalorieForm() {
+export default function CalorieCalculatorCard() {
   const {
     register,
     handleSubmit,
