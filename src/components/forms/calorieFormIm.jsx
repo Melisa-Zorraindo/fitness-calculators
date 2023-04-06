@@ -7,6 +7,7 @@ import bmrCalc from "../../utils/calorieCalculatorFunctions/bmrCalc";
 import tdeeCalc from "../../utils/calorieCalculatorFunctions/tdeeCalc";
 import macroSplitSelector from "../../utils/calorieCalculatorFunctions/macroSplit/macroSplitSelector";
 import calorieBudgetCalc from "../../utils/calorieCalculatorFunctions/calorieBudget";
+import { weightConverter } from "../../utils/calorieCalculatorFunctions/weightConverter";
 import { useCalorieStore } from "../../utils/stateManagement/calorieState";
 import { shallow } from "zustand/shallow";
 
@@ -65,13 +66,23 @@ export default function CalorieFormIm() {
     goal,
     macroSplit,
   }) {
-    const personsBMR = bmrCalc(gender, age, personWeight, personHeight);
+    const convertedPersonWeight = weightConverter(personWeight);
+    const personsBMR = bmrCalc(
+      gender,
+      age,
+      convertedPersonWeight,
+      personHeight
+    );
     const personsTDEE = tdeeCalc(personsBMR, activityLevel, goal);
     const tdee = Math.floor(personsTDEE);
 
     updateCalories(tdee);
 
-    const macros = macroSplitSelector(macroSplit, personsTDEE, personWeight);
+    const macros = macroSplitSelector(
+      macroSplit,
+      personsTDEE,
+      convertedPersonWeight
+    );
 
     updateMacros(macros);
 
