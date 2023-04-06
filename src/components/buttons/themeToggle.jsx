@@ -1,11 +1,12 @@
-import { Sun } from "react-feather";
+import { Sun, Moon } from "react-feather";
 import { StyledThemeToggle } from "../../styles/components/buttons/themeToggle.styles";
 import { useThemesStore } from "../../utils/stateManagement/themesState";
 import { shallow } from "zustand/shallow";
 
 export default function ThemeToggle() {
-  const { updateTheme } = useThemesStore(
+  const { theme, updateTheme } = useThemesStore(
     (state) => ({
+      theme: state.theme,
       updateTheme: state.updateTheme,
     }),
     shallow
@@ -17,7 +18,8 @@ export default function ThemeToggle() {
 
   return (
     <StyledThemeToggle onClick={toggleTheme}>
-      <Sun />
+      {theme ? <Sun /> : <Moon />}
+      {/* <Sun /> */}
     </StyledThemeToggle>
   );
 }
