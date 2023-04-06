@@ -4,7 +4,7 @@ import { persist, createJSONStorage } from "zustand/middleware";
 export const useThemesStore = create(
   persist(
     (set) => ({
-      theme: false,
+      theme: true,
       updateTheme: () => {
         set((state) => ({ theme: !state.theme }));
       },
