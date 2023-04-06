@@ -1,6 +1,6 @@
 import { StyledPage } from "../../styles/pages";
 import CalorieCard from "../../components/cards/CalorieCard";
-import LiftingCard from "../../components/cards/liftingCard";
+import LiftingCard from "../../components/cards/LiftingCard";
 
 export default function Home() {
   return (
