@@ -1,5 +1,5 @@
 import { StyledPage } from "../../styles/pages";
-import { StyledForm } from "../../styles/components/forms/calc.styles";
+import { StyledForm } from "../../styles/components/calculators/calculatorCard.styles";
 import LiftingCalculatorCard from "../../components/calculators/liftingCalculatorCard";
 import ResultsLiftingCard from "../../components/cards/ResultsLiftingCard";
 
