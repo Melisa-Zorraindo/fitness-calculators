@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useThemesStore } from "../../../utils/stateManagement/themesState";
 
 export const StyledForm = styled.form`
   width: 100%;
@@ -31,6 +32,11 @@ export const StyledForm = styled.form`
     .validation-error {
       background-color: ${({ theme }) => theme.color.onFocusContrast};
       color: ${({ theme }) => theme.color.contrast};
+
+      color: ${({ theme }) =>
+        useThemesStore.getState().theme
+          ? theme.color.contrast
+          : theme.color.support};
     }
   }
 
