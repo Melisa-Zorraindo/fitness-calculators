@@ -1,15 +1,15 @@
 import { StyledPage } from "../../styles/pages";
-import { StyledForm } from "../../styles/components/calculators/calculatorCard.styles";
+import { StyledCalculatorCard } from "../../styles/components/calculators/calculatorCard.styles";
 import LiftingCalculatorCard from "../../components/calculators/liftingCalculatorCard";
 import ResultsLiftingCard from "../../components/cards/ResultsLiftingCard";
 
 export default function LiftingCalculator() {
   return (
     <StyledPage>
-      <StyledForm>
+      <StyledCalculatorCard>
         <h1>Power up your lifts!</h1>
         <LiftingCalculatorCard />
-      </StyledForm>
+      </StyledCalculatorCard>
       <ResultsLiftingCard />
     </StyledPage>
   );

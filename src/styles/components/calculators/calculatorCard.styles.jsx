@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledForm = styled.div`
+export const StyledCalculatorCard = styled.div`
   background-color: ${({ theme }) => theme.color.contrast};
   color: ${({ theme }) => theme.color.support};
   border-radius: 0.8rem;
