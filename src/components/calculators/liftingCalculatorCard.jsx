@@ -2,6 +2,7 @@ import ExtraUserInfo from "../extraUserInformation";
 import InfoButton from "../buttons/infoButton";
 import MeasurementSystemSelector from "../measurementSystemSelector";
 import LiftingformMt from "../forms/liftingFormMt";
+import LiftingformIm from "../forms/liftingFormIm";
 import { useInformationStore } from "../../utils/stateManagement/informationState/informationState";
 import { shallow } from "zustand/shallow";
 import { useState } from "react";
@@ -24,7 +25,7 @@ export default function LiftingCalculatorCard() {
     <>
       <InfoButton id="liftingFormHowTo" />
       <MeasurementSystemSelector system={system} setSystem={setSystem} />
-      {system === "metric" ? <LiftingformMt /> : <div>Coming soon</div>}
+      {system === "metric" ? <LiftingformMt /> : <LiftingformIm />}
 
       {targetButton.active && (
         <ExtraUserInfo
