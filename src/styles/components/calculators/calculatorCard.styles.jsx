@@ -8,7 +8,7 @@ export const StyledCalculatorCard = styled.div`
   position: relative;
   width: 384px;
 
-  form {
+  /*   form {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -32,7 +32,8 @@ export const StyledCalculatorCard = styled.div`
 
         &:focus {
           outline: none;
-          border-bottom: 2px solid ${({ theme }) => theme.color.onFocusContrast};
+          border-bottom: 2px solid ${({ theme }) =>
+    theme.color.onFocusContrast};
         }
       }
 
@@ -41,7 +42,7 @@ export const StyledCalculatorCard = styled.div`
         color: ${({ theme }) => theme.color.contrast};
       }
     }
-  }
+  } */
 
   .results {
     margin-top: 4rem;
@@ -55,7 +56,7 @@ export const StyledCalculatorCard = styled.div`
     width: 100%;
   }
 
-  @media ${(props) => props.theme.media.tiny} {
+  /*   @media ${(props) => props.theme.media.tiny} {
     form {
       .field-block {
         input,
@@ -64,5 +65,5 @@ export const StyledCalculatorCard = styled.div`
         }
       }
     }
-  }
+  } */
 `;
