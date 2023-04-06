@@ -4,9 +4,10 @@ import { shallow } from "zustand/shallow";
 import { useEffect } from "react";
 
 export default function ResultsLiftingCard() {
-  const { oneRm, weightToLift, resetValues } = useLiftingStore(
+  const { oneRm, system, weightToLift, resetValues } = useLiftingStore(
     (state) => ({
       oneRm: state.oneRm,
+      system: state.system,
       weightToLift: state.weightToLift,
       resetValues: state.resetValues,
     }),
@@ -23,11 +24,11 @@ export default function ResultsLiftingCard() {
         <h2>Results</h2>
         <p>
           Estimated 1 RM: <span>{oneRm} </span>
-          Kg
+          {system}
         </p>
         <p>
           Recommended to lift: <span>{weightToLift} </span>
-          Kg
+          {system}
         </p>
       </div>
     </StyledResultsCard>

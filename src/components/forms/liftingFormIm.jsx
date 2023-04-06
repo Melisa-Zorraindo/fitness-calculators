@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { coefficients } from "../../utils/liftingCoefficients";
+import { weightConverter } from "../../utils/calorieCalculatorFunctions/weightConverter";
 import { useLiftingStore } from "../../utils/stateManagement/liftingState";
 import { shallow } from "zustand/shallow";
 
@@ -45,10 +46,11 @@ export default function LiftingformIm() {
     resolver: yupResolver(schema),
   });
 
-  const { updateOneRm, updateWeightToLift } = useLiftingStore(
+  const { updateOneRm, updateWeightToLift, updateSystem } = useLiftingStore(
     (state) => ({
       updateOneRm: state.updateOneRm,
       updateWeightToLift: state.updateWeightToLift,
+      updateSystem: state.updateSystem,
     }),
     shallow
   );
@@ -61,9 +63,10 @@ export default function LiftingformIm() {
     liftedWeight,
   }) {
     //get 1RM
+    const convertedLiftedWeight = weightConverter(liftedWeight);
     const selectedRpe = coefficients[liftedRpe];
     const coeffForRM = selectedRpe[liftedReps - 1];
-    const rm = (liftedWeight / coeffForRM).toFixed(1);
+    const rm = (convertedLiftedWeight / coeffForRM).toFixed(1);
 
     updateOneRm(rm);
 
@@ -73,6 +76,8 @@ export default function LiftingformIm() {
     const weightToLift = (rm * coeffForRecommendedWeight).toFixed(1);
 
     updateWeightToLift(weightToLift);
+
+    updateSystem("Lbs");
   }
 
   return (

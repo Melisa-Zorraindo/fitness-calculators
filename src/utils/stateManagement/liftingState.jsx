@@ -3,6 +3,7 @@ import { create } from "zustand";
 export const useLiftingStore = create((set) => ({
   oneRm: 0,
   weightToLift: 0,
+  system: null,
   resetValues: () => {
     set(() => ({
       oneRm: 0,
@@ -21,4 +22,7 @@ export const useLiftingStore = create((set) => ({
     });
   },
   updateWeightToLift: (value) => set(() => ({ weightToLift: value })),
+  updateSystem: (system) => {
+    set(() => ({ system: system }));
+  },
 }));

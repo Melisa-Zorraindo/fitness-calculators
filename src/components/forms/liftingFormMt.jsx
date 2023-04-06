@@ -45,10 +45,11 @@ export default function LiftingformMt() {
     resolver: yupResolver(schema),
   });
 
-  const { updateOneRm, updateWeightToLift } = useLiftingStore(
+  const { updateOneRm, updateWeightToLift, updateSystem } = useLiftingStore(
     (state) => ({
       updateOneRm: state.updateOneRm,
       updateWeightToLift: state.updateWeightToLift,
+      updateSystem: state.updateSystem,
     }),
     shallow
   );
@@ -73,6 +74,8 @@ export default function LiftingformMt() {
     const weightToLift = (rm * coeffForRecommendedWeight).toFixed(1);
 
     updateWeightToLift(weightToLift);
+
+    updateSystem("KG");
   }
 
   return (
