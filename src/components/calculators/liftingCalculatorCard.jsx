@@ -1,8 +1,10 @@
 import ExtraUserInfo from "../extraUserInformation";
 import InfoButton from "../buttons/infoButton";
+import MeasurementSystemSelector from "../measurementSystemSelector";
 import LiftingformMt from "../forms/liftingFormMt";
 import { useInformationStore } from "../../utils/stateManagement/informationState/informationState";
 import { shallow } from "zustand/shallow";
+import { useState } from "react";
 
 export default function LiftingCalculatorCard() {
   const { infoButtons } = useInformationStore(
@@ -16,10 +18,14 @@ export default function LiftingCalculatorCard() {
     (button) => button.id === "liftingFormHowTo"
   );
 
+  const [system, setSystem] = useState("metric");
+
   return (
     <>
       <InfoButton id="liftingFormHowTo" />
-      <LiftingformMt />
+      <MeasurementSystemSelector system={system} setSystem={setSystem} />
+      {system === "metric" ? <LiftingformMt /> : <div>Coming soon</div>}
+
       {targetButton.active && (
         <ExtraUserInfo
           title={"What does RPE mean?"}

@@ -1,8 +1,10 @@
 import InfoButton from "../buttons/infoButton";
 import ExtraUserInfo from "../extraUserInformation";
 import CalorieFormMt from "../forms/calorieFormMt";
+import MeasurementSystemSelector from "../measurementSystemSelector";
 import { useInformationStore } from "../../utils/stateManagement/informationState/informationState";
 import { shallow } from "zustand/shallow";
+import { useState } from "react";
 
 export default function CalorieCalculatorCard() {
   const { infoButtons } = useInformationStore(
@@ -16,10 +18,13 @@ export default function CalorieCalculatorCard() {
     (button) => button.id === "calorieFormHowTo"
   );
 
+  const [system, setSystem] = useState("metric");
+
   return (
     <>
       <InfoButton id="calorieFormHowTo" />
-      <CalorieFormMt />
+      <MeasurementSystemSelector system={system} setSystem={setSystem} />
+      {system === "metric" ? <CalorieFormMt /> : <div>Coming soon</div>}
       {targetButton.active && (
         <ExtraUserInfo
           title={"How to choose your macro split"}
