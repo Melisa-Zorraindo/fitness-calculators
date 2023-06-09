@@ -1,4 +1,4 @@
-export default function macroSplitCalc(tdee, weight) {
+export default function macroSplitCalc(tdee: number, weight: number) {
   const protein = Math.floor(weight * 2);
   const fat = Math.floor(weight);
 

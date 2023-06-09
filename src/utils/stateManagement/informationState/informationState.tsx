@@ -1,7 +1,14 @@
 import { create } from "zustand";
+import { InfoButtonsData } from "./infoButtonsData";
 import { infoButtonsData } from "./infoButtonsData";
 
-export const useInformationStore = create((set) => ({
+interface InformationState {
+  infoButtons: InfoButtonsData[];
+  displayButton: (id: string) => void;
+  hideButton: (id: string) => void;
+}
+
+export const useInformationStore = create<InformationState>((set) => ({
   infoButtons: infoButtonsData,
   displayButton: (id) =>
     set((state) => ({

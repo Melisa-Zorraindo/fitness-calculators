@@ -1,4 +1,9 @@
-export const infoButtonsData = [
+export interface InfoButtonsData {
+  id: string;
+  active: boolean;
+}
+
+export const infoButtonsData: InfoButtonsData[] = [
   {
     id: "calorieFormHowTo",
     active: false,

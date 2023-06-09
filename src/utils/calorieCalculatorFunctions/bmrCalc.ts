@@ -1,4 +1,9 @@
-export default function bmrCalc(gender, age, weight, height) {
+export default function bmrCalc(
+  gender: string,
+  age: number,
+  weight: number,
+  height: number
+) {
   if (gender === "male") {
     return Math.floor(88.36 + 13.4 * weight + 4.8 * height - 5.7 * age);
   } else if (gender === "female") {

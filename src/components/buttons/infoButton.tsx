@@ -19,6 +19,7 @@ export default function InfoButton({ id }) {
   function handleClick(id) {
     const buttonActive = button.active;
     buttonActive ? hideButton(id) : displayButton(id);
+    console.log(id);
   }
 
   return (

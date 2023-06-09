@@ -2,7 +2,11 @@ import macroSplitCalc from "./macroSplitCalc";
 import ketoSplitCalc from "./ketoSplitCalc";
 import balancedSplitCalc from "./balancedSplitCalc";
 
-export default function macroSplitSelector(macroSplit, tdee, weight) {
+export default function macroSplitSelector(
+  macroSplit: string,
+  tdee: number,
+  weight: number
+) {
   switch (macroSplit) {
     case "balanced":
       return balancedSplitCalc(tdee);

@@ -1,4 +1,8 @@
-export default function tdeeCalc(bmr, activityLevel, goal) {
+export default function tdeeCalc(
+  bmr: number,
+  activityLevel: number,
+  goal: string
+) {
   switch (goal) {
     case "moderateLose":
       return bmr * activityLevel * 0.85;

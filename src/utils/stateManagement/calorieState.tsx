@@ -1,6 +1,22 @@
 import { create } from "zustand";
 
-export const useCalorieStore = create((set) => ({
+interface CalorieState {
+  calories: number;
+  protein: number;
+  fats: number;
+  carbs: number;
+  weeklyBudget: number;
+  resetValues: () => void;
+  updateCalories: (value: number) => void;
+  updateMacros: (values: {
+    carbs: number;
+    fat: number;
+    protein: number;
+  }) => void;
+  updateWeeklyBudget: (value: number) => void;
+}
+
+export const useCalorieStore = create<CalorieState>((set) => ({
   calories: 0,
   protein: 0,
   fats: 0,
@@ -17,7 +33,9 @@ export const useCalorieStore = create((set) => ({
   },
   updateCalories: (value) => {
     set(() => ({ calories: value }));
-    const resultsCalorieCard = document.querySelector("#resultsCalorieCard");
+    const resultsCalorieCard = document.querySelector(
+      "#resultsCalorieCard"
+    ) as HTMLElement;
     const scrollTop =
       resultsCalorieCard.offsetTop -
       2 * parseFloat(getComputedStyle(resultsCalorieCard).fontSize);

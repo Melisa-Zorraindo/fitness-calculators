@@ -1,7 +1,12 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
-export const useThemesStore = create(
+interface ThemeState {
+  theme: boolean;
+  updateTheme: () => void;
+}
+
+export const useThemesStore = create<ThemeState>()(
   persist(
     (set) => ({
       theme: true,
