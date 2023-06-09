@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { CustomTheme } from "../../globalStyles";
 
-export const StyledInfoButton = styled.button`
+export const StyledInfoButton = styled.button<{ theme: CustomTheme }>`
   position: absolute;
   top: -2rem;
   left: 2rem;

@@ -1,6 +1,11 @@
 import styled from "styled-components";
+import { CustomTheme } from "./globalStyles";
 
-export const StyledPage = styled.main`
+interface StyledPageProps {
+  theme: CustomTheme;
+}
+
+export const StyledPage = styled.main<StyledPageProps>`
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;

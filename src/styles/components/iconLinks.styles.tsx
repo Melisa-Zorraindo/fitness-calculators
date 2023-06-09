@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { CustomTheme } from "../globalStyles";
 
-export const StyledIconLink = styled.div`
+export const StyledIconLink = styled.div<{ theme: CustomTheme }>`
   display: inline-flex;
   border-radius: 50%;
   background: ${({ theme }) => theme.color.contrast};

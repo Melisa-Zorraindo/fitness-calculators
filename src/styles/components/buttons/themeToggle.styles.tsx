@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { CustomTheme } from "../../globalStyles";
 
-export const StyledThemeToggle = styled.button`
+export const StyledThemeToggle = styled.button<{ theme: CustomTheme }>`
   border: none;
   display: inline-flex;
   border-radius: 50%;

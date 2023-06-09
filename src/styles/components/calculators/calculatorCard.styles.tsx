@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { CustomTheme } from "../../globalStyles";
 
-export const StyledCalculatorCard = styled.div`
+export const StyledCalculatorCard = styled.div<{ theme: CustomTheme }>`
   background-color: ${({ theme }) => theme.color.contrast};
   color: ${({ theme }) => theme.color.support};
   border-radius: 0.8rem;

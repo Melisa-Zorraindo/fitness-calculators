@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { useThemesStore } from "../../../utils/stateManagement/themesState";
+import { CustomTheme } from "../../globalStyles";
 
-export const StyledForm = styled.form`
+export const StyledForm = styled.form<{ theme: CustomTheme }>`
   width: 100%;
   display: flex;
   flex-direction: column;

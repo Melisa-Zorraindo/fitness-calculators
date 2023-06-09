@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { CustomTheme } from "../globalStyles";
 
-export const StyledLogo = styled.div`
+export const StyledLogo = styled.div<{ theme: CustomTheme }>`
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;

@@ -1,12 +1,27 @@
 import { createGlobalStyle, DefaultTheme } from "styled-components";
 
-export const media = {
+interface Media {
+  medium: string;
+  small: string;
+  tiny: string;
+}
+
+interface Fonts {
+  family: string;
+  bold: number;
+  largeSize: string;
+  regularSize: string;
+  smallSize: string;
+  tinySize: string;
+}
+
+export const media: Media = {
   medium: "(max-width: 785px)",
   small: "(max-width: 550px)",
   tiny: "(max-width: 280px)",
 };
 
-export const fonts = {
+export const fonts: Fonts = {
   family: `'Urbanist', sans-serif`,
   bold: 700,
   largeSize: "20px",
@@ -16,14 +31,7 @@ export const fonts = {
 };
 
 export interface CustomTheme extends DefaultTheme {
-  fonts: {
-    family: string;
-    bold: number;
-    largeSize: string;
-    regularSize: string;
-    smallSize: string;
-    tinySize: string;
-  };
+  fonts: Fonts;
   color: {
     main: string;
     contrast: string;

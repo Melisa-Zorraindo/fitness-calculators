@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { CustomTheme } from "../../globalStyles";
 
-export const StyledCTA = styled.button`
+export const StyledCTA = styled.button<{ theme: CustomTheme }>`
   background: ${({ theme }) => theme.color.accent};
   border: none;
   padding: 0.8rem 2rem;

@@ -1,6 +1,7 @@
 import { media, fonts } from "../globalStyles";
+import { DefaultTheme } from "styled-components";
 
-export const dark = {
+export const dark: DefaultTheme = {
   color: {
     main: "#202020",
     contrast: "#333",
@@ -13,7 +14,7 @@ export const dark = {
   fonts: fonts,
 };
 
-export const light = {
+export const light: DefaultTheme = {
   color: {
     main: "#fff",
     contrast: "#f2f2f2",
