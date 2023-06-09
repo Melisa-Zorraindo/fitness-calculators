@@ -7,7 +7,6 @@ export default function LiftingCalculator() {
   return (
     <StyledPage>
       <StyledCalculatorCard>
-        <h1>Power up your lifts!</h1>
         <LiftingCalculatorCard />
       </StyledCalculatorCard>
       <ResultsLiftingCard />

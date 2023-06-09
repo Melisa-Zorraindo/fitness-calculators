@@ -7,7 +7,6 @@ export default function CalorieCalculator() {
   return (
     <StyledPage>
       <StyledCalculatorCard>
-        <h1>Fuel your body!</h1>
         <CalorieCalculatorCard />
       </StyledCalculatorCard>
       <ResultsCalorieCard />

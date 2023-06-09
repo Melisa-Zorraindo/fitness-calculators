@@ -23,10 +23,11 @@ export default function CalorieCalculatorCard() {
 
   return (
     <>
+      <h1>Fuel your body!</h1>
       <InfoButton id="calorieFormHowTo" />
       <MeasurementSystemSelector system={system} setSystem={setSystem} />
       {system === "metric" ? <CalorieFormMt /> : <CalorieFormIm />}
-      {targetButton.active && (
+      {targetButton?.active && (
         <ExtraUserInfo
           title={"How to choose your macro split"}
           text={[

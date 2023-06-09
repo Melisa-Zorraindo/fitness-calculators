@@ -23,11 +23,12 @@ export default function LiftingCalculatorCard() {
 
   return (
     <>
+      <h1>Power up your lifts!</h1>
       <InfoButton id="liftingFormHowTo" />
       <MeasurementSystemSelector system={system} setSystem={setSystem} />
       {system === "metric" ? <LiftingformMt /> : <LiftingformIm />}
 
-      {targetButton.active && (
+      {targetButton?.active && (
         <ExtraUserInfo
           title={"What does RPE mean?"}
           text={[
