@@ -1,9 +1,10 @@
 import styled, { css } from "styled-components";
+import { CustomTheme } from "../globalStyles";
 import { useThemesStore } from "../../utils/stateManagement/themesState";
 
 const titlesLightMode = css`
-  color: ${({ theme }) => theme.color.support};
-  font-weight: ${({ theme }) => theme.fonts.bold};
+  color: ${({ theme }: { theme: CustomTheme }) => theme.color.support};
+  font-weight: ${({ theme }: { theme: CustomTheme }) => theme.fonts.bold};
 `;
 
 export const StyledUserInfo = styled.div`

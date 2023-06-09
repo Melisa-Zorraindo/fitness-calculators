@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, DefaultTheme } from "styled-components";
 
 export const media = {
   medium: "(max-width: 785px)",
@@ -15,7 +15,26 @@ export const fonts = {
   tinySize: "12px",
 };
 
-export const GlobalStyle = createGlobalStyle`
+export interface CustomTheme extends DefaultTheme {
+  fonts: {
+    family: string;
+    bold: number;
+    largeSize: string;
+    regularSize: string;
+    smallSize: string;
+    tinySize: string;
+  };
+  color: {
+    main: string;
+    contrast: string;
+    support: string;
+    accent: string;
+    onFocus: string;
+    onFocusContrast: string;
+  };
+}
+
+export const GlobalStyle = createGlobalStyle<{ theme: CustomTheme }>`
 
 #root {
   height: 100vh;
