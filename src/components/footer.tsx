@@ -2,7 +2,7 @@ import { StyledFooter } from "../styles/components/footer.styles";
 import IconLink from "./iconLinks";
 import { GitHub, Linkedin, Mail } from "react-feather";
 
-export default function Footer() {
+export default function Footer(): JSX.Element {
   return (
     <StyledFooter>
       <IconLink icon={GitHub} linkTo={"https://github.com/Melisa-Zorraindo"} />
