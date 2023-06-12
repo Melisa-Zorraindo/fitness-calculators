@@ -3,7 +3,7 @@ import { StyledThemeToggle } from "../../styles/components/buttons/themeToggle.s
 import { useThemesStore } from "../../utils/stateManagement/themesState";
 import { shallow } from "zustand/shallow";
 
-export default function ThemeToggle() {
+export default function ThemeToggle(): JSX.Element {
   const { theme, updateTheme } = useThemesStore(
     (state) => ({
       theme: state.theme,
@@ -12,14 +12,13 @@ export default function ThemeToggle() {
     shallow
   );
 
-  function toggleTheme() {
+  function toggleTheme(): void {
     updateTheme();
   }
 
   return (
     <StyledThemeToggle onClick={toggleTheme}>
       {theme ? <Sun /> : <Moon />}
-      {/* <Sun /> */}
     </StyledThemeToggle>
   );
 }
