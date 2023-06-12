@@ -9,6 +9,7 @@ import macroSplitSelector from "../../utils/calorieCalculatorFunctions/macroSpli
 import calorieBudgetCalc from "../../utils/calorieCalculatorFunctions/calorieBudget";
 import { useCalorieStore } from "../../utils/stateManagement/calorieState";
 import { shallow } from "zustand/shallow";
+import { CalorieFormData } from "../../types/calorieForm";
 
 const schema = yup
   .object({
@@ -45,7 +46,7 @@ export default function CalorieFormMt() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<CalorieFormData>({
     resolver: yupResolver(schema),
   });
 
@@ -66,7 +67,7 @@ export default function CalorieFormMt() {
     activityLevel,
     goal,
     macroSplit,
-  }) {
+  }: CalorieFormData) {
     const personsBMR = bmrCalc(gender, age, personWeight, personHeight);
     const personsTDEE = tdeeCalc(personsBMR, activityLevel, goal);
     const tdee = Math.floor(personsTDEE);
@@ -87,7 +88,6 @@ export default function CalorieFormMt() {
       <div className="field-block">
         <label htmlFor="gender">Your gender</label>
         <select
-          name="gender"
           id="gender"
           aria-label="Select your gender"
           {...register("gender", {
@@ -104,7 +104,6 @@ export default function CalorieFormMt() {
       <div className="field-block">
         <label htmlFor="age">Your age</label>
         <input
-          name="age"
           id="age"
           type="number"
           placeholder="Enter your age"
@@ -117,7 +116,6 @@ export default function CalorieFormMt() {
       <div className="field-block">
         <label htmlFor="person-weight">Your weight</label>
         <input
-          name="person-weight"
           id="person-weight"
           placeholder="Enter your weight in KG"
           aria-label="Enter your weight in KG"
@@ -129,7 +127,6 @@ export default function CalorieFormMt() {
       <div className="field-block">
         <label htmlFor="person-height">Your height</label>
         <input
-          name="person-height"
           id="person-height"
           placeholder="Enter your height in CM"
           aria-label="Enter your height in CM"
@@ -145,7 +142,6 @@ export default function CalorieFormMt() {
       <div className="field-block">
         <label htmlFor="activity-level">Your activity level</label>
         <select
-          name="activity-level"
           id="activity-level"
           aria-label="Select your activity level"
           {...register("activityLevel", { required: true })}
@@ -162,7 +158,6 @@ export default function CalorieFormMt() {
       <div className="field-block">
         <label htmlFor="goal">Your goal</label>
         <select
-          name="goal"
           id="goal"
           aria-label="Select your goal"
           {...register("goal", { required: true })}
@@ -180,7 +175,6 @@ export default function CalorieFormMt() {
       <div className="field-block">
         <label htmlFor="macroSplit">Your macro split</label>
         <select
-          name="macroSplit"
           id="macroSplit"
           aria-label="Select your macro split"
           {...register("macroSplit", { required: false })}

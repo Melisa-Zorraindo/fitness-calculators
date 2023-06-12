@@ -15,6 +15,6 @@ export default function tdeeCalc(
     case "moderateGain":
       return bmr * activityLevel * 1.15;
     default:
-      return null;
+      return 0;
   }
 }

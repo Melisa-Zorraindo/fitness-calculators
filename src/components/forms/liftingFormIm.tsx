@@ -7,6 +7,7 @@ import { coefficients } from "../../utils/liftingCoefficients";
 import { weightConverter } from "../../utils/calorieCalculatorFunctions/weightConverter";
 import { useLiftingStore } from "../../utils/stateManagement/liftingState";
 import { shallow } from "zustand/shallow";
+import { LiftingFormData } from "../../types/liftingForm";
 
 const schema = yup
   .object({
@@ -42,7 +43,7 @@ export default function LiftingformIm() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<LiftingFormData>({
     resolver: yupResolver(schema),
   });
 
@@ -61,19 +62,21 @@ export default function LiftingformIm() {
     liftedReps,
     liftedRpe,
     liftedWeight,
-  }) {
+  }: LiftingFormData) {
     //get 1RM
-    const convertedLiftedWeight = weightConverter(liftedWeight);
-    const selectedRpe = coefficients[liftedRpe];
-    const coeffForRM = selectedRpe[liftedReps - 1];
-    const rm = (convertedLiftedWeight / coeffForRM).toFixed(1);
+    const convertedLiftedWeight: number = weightConverter(liftedWeight);
+    const selectedRpe: number[] = coefficients[liftedRpe];
+    const coeffForRM: number = selectedRpe[liftedReps - 1];
+    const rm: number = Number((convertedLiftedWeight / coeffForRM).toFixed(1));
 
     updateOneRm(rm);
 
     //get recommended lifting weight
-    const wantedRpe = coefficients[desiredRpe];
-    const coeffForRecommendedWeight = wantedRpe[desiredReps - 1];
-    const weightToLift = (rm * coeffForRecommendedWeight).toFixed(1);
+    const wantedRpe: number[] = coefficients[desiredRpe];
+    const coeffForRecommendedWeight: number = wantedRpe[desiredReps - 1];
+    const weightToLift: number = Number(
+      (rm * coeffForRecommendedWeight).toFixed(1)
+    );
 
     updateWeightToLift(weightToLift);
 
@@ -85,7 +88,6 @@ export default function LiftingformIm() {
       <div className="field-block">
         <label htmlFor="lifted-weight">I lifted</label>
         <input
-          name="lifted-weight"
           id="lifted-weight"
           placeholder="Enter amount in Lbs"
           aria-label="Enter the amount of weight lifted in pounds"
@@ -100,7 +102,6 @@ export default function LiftingformIm() {
       <div className="field-block">
         <label htmlFor="lifted-reps">For</label>
         <input
-          name="lifted-reps"
           id="lifted-reps"
           type="number"
           placeholder="Enter number of reps"
@@ -113,7 +114,6 @@ export default function LiftingformIm() {
       <div className="field-block">
         <label htmlFor="lifted-rpe">My RPE was</label>
         <select
-          name="lifted-rpe"
           id="lifted-rpe"
           aria-label="Select the RPE value you experienced during the lift"
           {...register("liftedRpe", { required: true })}
@@ -134,7 +134,6 @@ export default function LiftingformIm() {
       <div className="field-block">
         <label htmlFor="desired-reps">I want to endure</label>
         <input
-          name="desired-reps"
           id="desired-reps"
           type="number"
           placeholder="Enter number of reps"
@@ -147,7 +146,6 @@ export default function LiftingformIm() {
       <div className="field-block">
         <label htmlFor="desired-rpe">At an RPE of</label>
         <select
-          name="desired-rpe"
           id="desired-rpe"
           aria-label="Select the desired RPE value you want to perform the lift at"
           {...register("desiredRpe", { required: true })}

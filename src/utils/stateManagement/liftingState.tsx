@@ -3,11 +3,11 @@ import { create } from "zustand";
 interface LiftingState {
   oneRm: number;
   weightToLift: number;
-  system: null;
+  system: string | null;
   resetValues: () => void;
   updateOneRm: (value: number) => void;
   updateWeightToLift: (value: number) => void;
-  updateSystem: (system: null) => void;
+  updateSystem: (system: string) => void;
 }
 
 export const useLiftingStore = create<LiftingState>((set) => ({
