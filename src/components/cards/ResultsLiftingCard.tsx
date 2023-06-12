@@ -3,7 +3,13 @@ import { useLiftingStore } from "../../utils/stateManagement/liftingState";
 import { shallow } from "zustand/shallow";
 import { useEffect } from "react";
 
-export default function ResultsLiftingCard() {
+interface ResultsLiftingCardProps {
+  activeBackground: number;
+}
+
+export default function ResultsLiftingCard({
+  activeBackground,
+}: ResultsLiftingCardProps) {
   const { oneRm, system, weightToLift, resetValues } = useLiftingStore(
     (state) => ({
       oneRm: state.oneRm,

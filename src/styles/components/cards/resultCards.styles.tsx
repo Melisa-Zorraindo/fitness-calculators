@@ -1,7 +1,10 @@
 import styled from "styled-components";
-import { CustomTheme } from "../../globalStyles";
 
-export const StyledResultsCard = styled.div<{ theme: CustomTheme }>`
+interface StyledResultsCardProps {
+  activeBackground: number;
+}
+
+export const StyledResultsCard = styled.div<StyledResultsCardProps>`
   background: ${(props) =>
     props.activeBackground
       ? `${props.theme.color.accent}`

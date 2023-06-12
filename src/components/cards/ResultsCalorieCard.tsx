@@ -39,14 +39,14 @@ export default function ResultsCalorieCard() {
   //the button to close the information panel is gone when they're back to calorieCalculator page
   //and they have no possibility to close it the panel to immediately see the results when they reuse the calculator.
   //To prevent this set the targetButton.active to false when there are no results to display
-  if (calories === 0) {
+  if (calories === 0 && targetButton !== undefined) {
     targetButton.active = false;
   }
 
   return (
     <StyledResultsCard activeBackground={calories} id="resultsCalorieCard">
       {calories !== 0 && <InfoButton id="resultsCalorieExtraInfo" />}
-      {targetButton.active && (
+      {targetButton && targetButton.active && (
         <ExtraUserInfo
           title={"Note"}
           text={[
