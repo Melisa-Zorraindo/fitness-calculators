@@ -3,10 +3,10 @@ import { CustomTheme } from "../../globalStyles";
 
 export const StyledInfoButton = styled.button<{ theme: CustomTheme }>`
   position: absolute;
-  top: -2rem;
-  left: 2rem;
-  width: 4rem;
-  height: 4rem;
+  top: -1.5rem;
+  right: 1.5rem;
+  width: 2.9rem;
+  height: 2.8rem;
   background: ${({ theme }) => theme.color.accent};
   border: none;
   border-radius: 50%;

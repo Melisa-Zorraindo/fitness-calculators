@@ -1,5 +1,5 @@
 import { StyledInfoButton } from "../../styles/components/buttons/infoButton.styles";
-import { Info, X } from "react-feather";
+import { HelpCircle, X } from "react-feather";
 import { useInformationStore } from "../../utils/stateManagement/informationState/informationState";
 import { shallow } from "zustand/shallow";
 
@@ -23,7 +23,7 @@ export default function InfoButton({ id }: { id: string }): JSX.Element {
 
   return (
     <StyledInfoButton onClick={() => handleClick(id)} id={id}>
-      {button.active ? <X size={"2rem"} /> : <Info size={"2rem"} />}
+      {button.active ? <X size={"2rem"} /> : <HelpCircle size={"2rem"} />}
     </StyledInfoButton>
   );
 }
