@@ -6,7 +6,7 @@ import { useInformationStore } from "../../utils/stateManagement/informationStat
 import { shallow } from "zustand/shallow";
 import { useEffect } from "react";
 
-export default function ResultsCalorieCard() {
+export default function ResultsCalorieCard(): JSX.Element {
   const { calories, protein, fats, carbs, weeklyBudget, resetValues } =
     useCalorieStore(
       (state) => ({
