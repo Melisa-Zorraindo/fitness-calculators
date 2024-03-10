@@ -2,7 +2,7 @@ import { StyledCard } from "../../styles/components/cards/cards.styles";
 import PrimaryCTA from "../buttons/primaryButton";
 import { CardData } from "../../types/genericCard";
 
-export default function Card({
+export default function CalculatorCard({
   heading,
   text,
   img,
