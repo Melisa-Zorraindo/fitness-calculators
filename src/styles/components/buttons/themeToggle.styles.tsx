@@ -9,6 +9,8 @@ export const StyledThemeToggle = styled.button<{ theme: CustomTheme }>`
   color: ${({ theme }) => theme.color.support};
   padding: 0.7rem;
   cursor: pointer;
+  // hides button's text from screen but keeps it for screen readers
+  font-size: 0;
 
   &:hover {
     background: ${({ theme }) => theme.color.main};

@@ -9,11 +9,16 @@ export interface IconProps {
 interface IconLinkProps {
   icon: ComponentType<IconProps>;
   linkTo: string;
+  ariaLabel: string;
 }
 
-export default function IconLink({ icon: Icon, linkTo }: IconLinkProps) {
+export default function IconLink({
+  icon: Icon,
+  linkTo,
+  ariaLabel,
+}: IconLinkProps) {
   return (
-    <Link to={linkTo} target="_blank">
+    <Link to={linkTo} target="_blank" aria-label={ariaLabel}>
       <StyledIconLink>{<Icon size={16} />}</StyledIconLink>
     </Link>
   );

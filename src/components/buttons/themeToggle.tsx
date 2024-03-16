@@ -17,7 +17,7 @@ export default function ThemeToggle(): JSX.Element {
   }
 
   return (
-    <StyledThemeToggle onClick={toggleTheme}>
+    <StyledThemeToggle onClick={toggleTheme} aria-label="theme toggle">
       {theme ? <Sun /> : <Moon />}
     </StyledThemeToggle>
   );
