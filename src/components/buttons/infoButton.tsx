@@ -22,7 +22,11 @@ export default function InfoButton({ id }: { id: string }): JSX.Element {
   }
 
   return (
-    <StyledInfoButton onClick={() => handleClick(id)} id={id}>
+    <StyledInfoButton
+      onClick={() => handleClick(id)}
+      id={id}
+      aria-label="how to use this calculator"
+    >
       {button.active ? <X size={"2rem"} /> : <HelpCircle size={"2rem"} />}
     </StyledInfoButton>
   );
