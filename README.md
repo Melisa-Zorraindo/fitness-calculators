@@ -43,44 +43,19 @@ npm install
 
 ```bash
 npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
 ```
 
-## App Features
+## Building
 
-- Calorie calculator
-- Macro calculator
-- One Rep Max calculator
-- RPE calculator
+To create a production version of your app:
 
-## Contributing
-
-Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
-
-1. Fork the repository
-2. Create a new branch
-   
-```bash
-git checkout -b new-feature
+```sh
+npm run build
 ```
 
-3. Make your changes and commit them
-   
-```bash
-git commit -am 'Add new feature'
-```
+You can preview the production build with `npm run preview`.
 
-4. Push your changes to your forked repository
-
-```bash
-git push origin new-feature
-```
-
-7. Open a pull request
-
-Thank you for using the Fitness calculators web application! If you have any questions or issues, please feel free to reach out.
-
-## Contact
-
-[![linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/melisa-zorraindo-81719618b/)
-
-[![gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:melisa.zorraindo@gmail.com)
+> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
