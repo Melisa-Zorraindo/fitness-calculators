@@ -15,7 +15,7 @@
 
 	const variants = {
 		primary: {
-			container: 'col-span-full border-teal-400 bg-teal-200 px-1.5 py-4',
+			container: 'col-span-full border-teal-300 bg-teal-200 px-1.5 py-4',
 			title: 'text-xs',
 			value: 'text-6xl font-extrabold'
 		},
