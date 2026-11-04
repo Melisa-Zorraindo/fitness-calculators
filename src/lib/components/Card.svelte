@@ -16,12 +16,12 @@
 	const variants = {
 		primary: {
 			container: 'col-span-full border-teal-300 bg-teal-200 px-1.5 py-4',
-			title: 'text-xs',
+			title: 'text-sm',
 			value: 'text-6xl font-extrabold'
 		},
 		secondary: {
 			container: 'border-purple-200 bg-purple-100 p-1.5',
-			title: 'text-xs',
+			title: 'text-sm',
 			value: 'text-3xl font-bold'
 		}
 	} satisfies Record<Variant, Record<string, string>>;
