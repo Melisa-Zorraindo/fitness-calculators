@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Card from '#lib/components/Card.svelte';
+	import Number from '#lib/components/inputs/Number.svelte';
 </script>
 
 <div class="mx-2 mb-2.5 grid grid-cols-2 gap-2 rounded-sm bg-gray-100 p-3">
@@ -8,69 +9,95 @@
 	<Card text="% 1RM" value="86" />
 </div>
 
-<form class="mx-2 mb-2.5 rounded-sm bg-gray-100 p-3">
-	<fieldset class="mb-5 text-xs">
-		<legend class="mb-2">LAST SET</legend>
-		<div class="mb-2 flex flex-col text-sm">
-			<label for="weight" class="mb-1">Weight (kg)</label>
-			<input
-				type="number"
-				name="last-set"
-				id="weight"
-				min="1"
-				max="500"
-				class="w-full rounded-sm border-gray-300"
-			/>
-		</div>
-		<div class="mb-2 flex flex-col text-sm">
-			<label for="reps" class="mb-1">Reps</label>
-			<input
-				type="number"
-				name="last-set"
-				id="reps"
-				min="1"
-				max="12"
-				class="w-full rounded-sm border-gray-300"
-			/>
-		</div>
-		<div class="mb-2 flex flex-col text-sm">
-			<label for="rpe" class="mb-1">RPE</label>
-			<input
-				type="range"
-				name="last-set"
-				id="rpe"
-				min="6"
-				max="10"
-				step="0.5"
-				class="w-full rounded-sm accent-teal-200"
-			/>
+<form class="mx-2 mb-2.5 space-y-6 rounded-sm bg-gray-100 p-3">
+	<fieldset>
+		<legend class="mb-3 text-xs tracking-wider text-mist-800 uppercase"> Last set </legend>
+
+		<div class="space-y-4">
+			<div class="grid grid-cols-2 gap-3">
+				<div class="flex flex-col gap-1.5">
+					<Number
+						id="weight"
+						text="Weight (kg)"
+						name="weight"
+						min="1"
+						max="500"
+						step="0.5"
+						inputmode="decimal"
+						placeholder="100"
+					/>
+				</div>
+				<div class="flex flex-col gap-1.5">
+					<Number
+						id="reps"
+						text="Reps"
+						name="reps"
+						min="1"
+						max="12"
+						step="1"
+						inputmode="numeric"
+						placeholder="5"
+					/>
+				</div>
+			</div>
+
+			<div class="flex flex-col gap-1">
+				<div class="flex items-baseline justify-between">
+					<label for="rpe" class="text-sm tracking-tighter text-mist-800">RPE</label>
+					<output for="rpe" class="text-lg font-semibold text-gray-900 tabular-nums">8</output>
+				</div>
+				<input
+					type="range"
+					id="rpe"
+					name="rpe"
+					min="6.5"
+					max="10"
+					step="0.5"
+					value="8"
+					class="h-11 w-full accent-teal-200"
+				/>
+				<div class="flex justify-between text-xs text-gray-500">
+					<span>6.5 · easy</span><span>10 · max</span>
+				</div>
+			</div>
 		</div>
 	</fieldset>
 
-	<fieldset class="text-xs">
-		<legend class="mb-2">NEXT SET</legend>
-		<div class="mb-2 flex flex-col text-sm">
-			<label for="target-reps" class="mb-1">Target reps</label>
-			<input
-				type="number"
-				name="next-set"
-				id="target-reps"
-				min="1"
-				max="12"
-				class="w-full rounded-sm border-gray-300"
-			/>
-		</div>
-		<div class="mb-2 flex flex-col text-sm">
-			<label for="target-rpe" class="mb-1">Target RPE</label>
-			<input
-				type="range"
-				name="next-set"
-				id="target-rpe"
-				min="6"
-				max="10"
-				step="0.5"
-				class="w-full rounded-sm accent-teal-200"
-			/>
+	<fieldset>
+		<legend class="mb-3 text-xs tracking-wider text-mist-800 uppercase"> Next set </legend>
+
+		<div class="space-y-4">
+			<div class="flex flex-col gap-1.5">
+				<Number
+					id="target-reps"
+					text="Target reps"
+					name="target-reps"
+					min="1"
+					max="12"
+					step="1"
+					inputmode="numeric"
+					placeholder="3"
+				/>
+			</div>
+
+			<div class="flex flex-col gap-1">
+				<div class="flex items-baseline justify-between">
+					<label for="target-rpe" class="text-sm tracking-tighter text-mist-800">Target RPE</label>
+					<output for="target-rpe" class="text-lg font-semibold text-gray-900 tabular-nums"
+						>8</output
+					>
+				</div>
+				<input
+					type="range"
+					id="target-rpe"
+					name="target-rpe"
+					min="6.5"
+					max="10"
+					step="0.5"
+					value="8"
+					class="h-11 w-full accent-teal-200"
+				/>
+			</div>
 		</div>
 	</fieldset>
 </form>
