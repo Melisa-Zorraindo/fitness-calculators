@@ -15,7 +15,7 @@
 
 <form class="mx-2 mb-2.5 space-y-6 rounded-sm bg-gray-100 p-3">
 	<fieldset>
-		<legend class="mb-3 text-xs tracking-wider text-mist-800 uppercase"> Last set </legend>
+		<legend class="mb-3 text-sm tracking-wider text-mist-800 uppercase"> Last set </legend>
 
 		<div class="space-y-4">
 			<div class="grid grid-cols-2 gap-3">
@@ -60,7 +60,7 @@
 	</fieldset>
 
 	<fieldset>
-		<legend class="mb-3 text-xs tracking-wider text-mist-800 uppercase"> Next set </legend>
+		<legend class="mb-3 text-sm tracking-wider text-mist-800 uppercase"> Next set </legend>
 
 		<div class="space-y-4">
 			<div class="flex flex-col gap-1.5">
@@ -91,7 +91,7 @@
 
 <div class="mx-2 mb-2.5 rounded-sm bg-gray-100 p-3">
 	<table class="w-full table-auto border-collapse border border-gray-300 text-sm">
-		<caption class="pb-2 text-xs">Reps ladder load in relation to RPE and RIR</caption>
+		<caption class="pb-2 text-sm">Reps ladder load in relation to RPE and RIR</caption>
 		<thead>
 			<tr>
 				<th class="border border-gray-300">reps</th>
