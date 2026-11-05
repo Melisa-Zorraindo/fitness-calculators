@@ -1,6 +1,10 @@
 <script lang="ts">
 	import Card from '#lib/components/Card.svelte';
 	import Number from '#lib/components/inputs/Number.svelte';
+	import Range from '#lib/components/inputs/Range.svelte';
+
+	let rpe = $state(8);
+	let targetRpe = $state(8);
 </script>
 
 <div class="mx-2 mb-2.5 grid grid-cols-2 gap-2 rounded-sm bg-gray-100 p-3">
@@ -41,25 +45,17 @@
 				</div>
 			</div>
 
-			<div class="flex flex-col gap-1">
-				<div class="flex items-baseline justify-between">
-					<label for="rpe" class="text-sm tracking-tighter text-mist-800">RPE</label>
-					<output for="rpe" class="text-lg font-semibold text-gray-900 tabular-nums">8</output>
-				</div>
-				<input
-					type="range"
-					id="rpe"
-					name="rpe"
-					min="6.5"
-					max="10"
-					step="0.5"
-					value="8"
-					class="h-11 w-full accent-teal-200"
-				/>
-				<div class="flex justify-between text-xs text-gray-500">
-					<span>6.5 · easy</span><span>10 · max</span>
-				</div>
-			</div>
+			<Range
+				id="rpe"
+				text="RPE"
+				name="rpe"
+				min={6.5}
+				max={10}
+				step={0.5}
+				bind:value={rpe}
+				minLabel="6.5 · easy"
+				maxLabel="10 · max"
+			/>
 		</div>
 	</fieldset>
 
@@ -80,24 +76,15 @@
 				/>
 			</div>
 
-			<div class="flex flex-col gap-1">
-				<div class="flex items-baseline justify-between">
-					<label for="target-rpe" class="text-sm tracking-tighter text-mist-800">Target RPE</label>
-					<output for="target-rpe" class="text-lg font-semibold text-gray-900 tabular-nums"
-						>8</output
-					>
-				</div>
-				<input
-					type="range"
-					id="target-rpe"
-					name="target-rpe"
-					min="6.5"
-					max="10"
-					step="0.5"
-					value="8"
-					class="h-11 w-full accent-teal-200"
-				/>
-			</div>
+			<Range
+				id="target-rpe"
+				text="Target RPE"
+				name="target-rpe"
+				min={6.5}
+				max={10}
+				step={0.5}
+				bind:value={targetRpe}
+			/>
 		</div>
 	</fieldset>
 </form>
