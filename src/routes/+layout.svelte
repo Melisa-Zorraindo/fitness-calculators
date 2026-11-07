@@ -3,6 +3,7 @@
 	import favicon from '#lib/assets/favicon.svg';
 	import Header from '#lib/components/Header.svelte';
 	import type { LayoutProps } from './$types';
+	import Footer from '#lib/components/Footer.svelte';
 
 	let { children }: LayoutProps = $props();
 </script>
@@ -13,3 +14,4 @@
 
 <Header />
 {@render children()}
+<Footer />
