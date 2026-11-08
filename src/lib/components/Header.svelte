@@ -12,10 +12,11 @@
 			<span>fitness calculators</span>
 		</a>
 
-		<nav aria-label="Main" class="grid grid-cols-3 gap-2 sm:w-80">
+		<!-- grid-cols-3 cuando /health este activa -->
+		<nav aria-label="Main" class="grid grid-cols-2 gap-2 sm:w-80">
 			<NavigationButton href="/" text="Lift" />
 			<NavigationButton href="/nutrition" text="Eat" />
-			<NavigationButton href="/health" text="Body" />
+			<!-- <NavigationButton href="/health" text="Body" /> -->
 		</nav>
 	</div>
 </header>

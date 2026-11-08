@@ -1,4 +1,3 @@
-<!-- Range.svelte -->
 <script lang="ts">
 	let {
 		id,
