@@ -2,6 +2,7 @@
 	import Card from '#lib/components/Card.svelte';
 	import Number from '#lib/components/inputs/Number.svelte';
 	import Range from '#lib/components/inputs/Range.svelte';
+	import RepsLadder from '#lib/components/RepsLadder.svelte';
 
 	let rpe = $state(8);
 	let targetRpe = $state(8);
@@ -89,113 +90,20 @@
 	</fieldset>
 </form>
 
-<div class="mx-2 mb-2.5 rounded-sm bg-gray-100 p-3">
-	<table class="w-full table-auto border-collapse border border-gray-300 text-sm">
-		<caption class="pb-2 text-sm">Reps ladder load in relation to RPE and RIR</caption>
-		<thead>
-			<tr>
-				<th class="border border-gray-300">reps</th>
-				<th class="border border-gray-300">% 1RM</th>
-				<th class="border border-gray-300">RPE</th>
-				<th class="border border-gray-300">RIR</th>
-				<th class="border border-gray-300">load kg</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td class="border border-gray-300 pr-1 text-right">1</td>
-				<td class="border border-gray-300 pr-1 text-right">100</td>
-				<td class="border border-gray-300 pr-1 text-right">10</td>
-				<td class="border border-gray-300 pr-1 text-right">0</td>
-				<td class="border border-gray-300 pr-1 text-right">125</td>
-			</tr>
-
-			<tr>
-				<td class="border border-gray-300 pr-1 text-right">2</td>
-				<td class="border border-gray-300 pr-1 text-right">90</td>
-				<td class="border border-gray-300 pr-1 text-right">9</td>
-				<td class="border border-gray-300 pr-1 text-right">1</td>
-				<td class="border border-gray-300 pr-1 text-right">100</td>
-			</tr>
-
-			<tr>
-				<td class="border border-gray-300 pr-1 text-right">3</td>
-				<td class="border border-gray-300 pr-1 text-right">80</td>
-				<td class="border border-gray-300 pr-1 text-right">8</td>
-				<td class="border border-gray-300 pr-1 text-right">2</td>
-				<td class="border border-gray-300 pr-1 text-right">90</td>
-			</tr>
-
-			<tr>
-				<td class="border border-gray-300 pr-1 text-right">4</td>
-				<td class="border border-gray-300 pr-1 text-right">70</td>
-				<td class="border border-gray-300 pr-1 text-right">7</td>
-				<td class="border border-gray-300 pr-1 text-right">3</td>
-				<td class="border border-gray-300 pr-1 text-right">80</td>
-			</tr>
-
-			<tr>
-				<td class="border border-gray-300 pr-1 text-right">5</td>
-				<td class="border border-gray-300 pr-1 text-right">60</td>
-				<td class="border border-gray-300 pr-1 text-right">6</td>
-				<td class="border border-gray-300 pr-1 text-right">4</td>
-				<td class="border border-gray-300 pr-1 text-right">70</td>
-			</tr>
-
-			<tr>
-				<td class="border border-gray-300 pr-1 text-right">6</td>
-				<td class="border border-gray-300 pr-1 text-right">50</td>
-				<td class="border border-gray-300 pr-1 text-right">5</td>
-				<td class="border border-gray-300 pr-1 text-right">5</td>
-				<td class="border border-gray-300 pr-1 text-right">60</td>
-			</tr>
-
-			<tr>
-				<td class="border border-gray-300 pr-1 text-right">7</td>
-				<td class="border border-gray-300 pr-1 text-right">40</td>
-				<td class="border border-gray-300 pr-1 text-right">4</td>
-				<td class="border border-gray-300 pr-1 text-right">6</td>
-				<td class="border border-gray-300 pr-1 text-right">50</td>
-			</tr>
-
-			<tr>
-				<td class="border border-gray-300 pr-1 text-right">8</td>
-				<td class="border border-gray-300 pr-1 text-right">30</td>
-				<td class="border border-gray-300 pr-1 text-right">3</td>
-				<td class="border border-gray-300 pr-1 text-right">7</td>
-				<td class="border border-gray-300 pr-1 text-right">40</td>
-			</tr>
-
-			<tr>
-				<td class="border border-gray-300 pr-1 text-right">9</td>
-				<td class="border border-gray-300 pr-1 text-right">20</td>
-				<td class="border border-gray-300 pr-1 text-right">2</td>
-				<td class="border border-gray-300 pr-1 text-right">8</td>
-				<td class="border border-gray-300 pr-1 text-right">30</td>
-			</tr>
-
-			<tr>
-				<td class="border border-gray-300 pr-1 text-right">10</td>
-				<td class="border border-gray-300 pr-1 text-right">10</td>
-				<td class="border border-gray-300 pr-1 text-right">1</td>
-				<td class="border border-gray-300 pr-1 text-right">9</td>
-				<td class="border border-gray-300 pr-1 text-right">20</td>
-			</tr>
-
-			<tr>
-				<td class="border border-gray-300 pr-1 text-right">11</td>
-				<td class="border border-gray-300 pr-1 text-right">5</td>
-				<td class="border border-gray-300 pr-1 text-right">1</td>
-				<td class="border border-gray-300 pr-1 text-right">10</td>
-				<td class="border border-gray-300 pr-1 text-right">10</td>
-			</tr>
-			<tr>
-				<td class="border border-gray-300 pr-1 text-right">12</td>
-				<td class="border border-gray-300 pr-1 text-right">0</td>
-				<td class="border border-gray-300 pr-1 text-right">0</td>
-				<td class="border border-gray-300 pr-1 text-right">11</td>
-				<td class="border border-gray-300 pr-1 text-right">5</td>
-			</tr>
-		</tbody>
-	</table>
-</div>
+<RepsLadder
+	rows={[
+		{ reps: 1, pct: 100, rpe: 10, rir: 0, load: 125 },
+		{ reps: 2, pct: 90, rpe: 9, rir: 1, load: 100 },
+		{ reps: 3, pct: 90, rpe: 9, rir: 1, load: 100 },
+		{ reps: 4, pct: 90, rpe: 9, rir: 1, load: 100 },
+		{ reps: 5, pct: 90, rpe: 9, rir: 1, load: 100 },
+		{ reps: 6, pct: 90, rpe: 9, rir: 1, load: 100 },
+		{ reps: 7, pct: 90, rpe: 9, rir: 1, load: 100 },
+		{ reps: 8, pct: 90, rpe: 9, rir: 1, load: 100 },
+		{ reps: 9, pct: 90, rpe: 9, rir: 1, load: 100 },
+		{ reps: 10, pct: 90, rpe: 9, rir: 1, load: 100 },
+		{ reps: 11, pct: 90, rpe: 9, rir: 1, load: 100 },
+		{ reps: 12, pct: 90, rpe: 9, rir: 1, load: 100 }
+	]}
+	targetReps={3}
+/>
