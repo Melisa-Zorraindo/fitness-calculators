@@ -1,5 +1,25 @@
 <script lang="ts">
-	let { id, text, name, min, max, step, inputmode, placeholder } = $props();
+	import type { HTMLInputAttributes } from 'svelte/elements';
+
+	let {
+		id,
+		text,
+		name,
+		min,
+		max,
+		step,
+		inputmode,
+		placeholder
+	}: {
+		id: string;
+		text: string;
+		name: string;
+		min: number;
+		max: number;
+		step: number;
+		inputmode: HTMLInputAttributes['inputmode'];
+		placeholder: string;
+	} = $props();
 </script>
 
 <label for={id} class="text-sm tracking-tighter text-mist-800">{text}</label>

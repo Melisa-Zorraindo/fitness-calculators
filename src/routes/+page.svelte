@@ -25,9 +25,9 @@
 						id="weight"
 						text="Weight (kg)"
 						name="weight"
-						min="1"
-						max="500"
-						step="0.5"
+						min={1}
+						max={500}
+						step={0.5}
 						inputmode="decimal"
 						placeholder="100"
 					/>
@@ -37,9 +37,9 @@
 						id="reps"
 						text="Reps"
 						name="reps"
-						min="1"
-						max="12"
-						step="1"
+						min={1}
+						max={12}
+						step={1}
 						inputmode="numeric"
 						placeholder="5"
 					/>
@@ -69,9 +69,9 @@
 					id="target-reps"
 					text="Target reps"
 					name="target-reps"
-					min="1"
-					max="12"
-					step="1"
+					min={1}
+					max={12}
+					step={1}
 					inputmode="numeric"
 					placeholder="3"
 				/>

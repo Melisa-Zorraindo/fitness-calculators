@@ -89,9 +89,9 @@
 						id="weight"
 						text="Weight (kg)"
 						name="weight"
-						min="1"
-						max="500"
-						step="0.1"
+						min={1}
+						max={500}
+						step={0.1}
 						inputmode="decimal"
 						placeholder="60"
 					/>
@@ -101,9 +101,9 @@
 						id="height"
 						text="Height (cm)"
 						name="height"
-						min="130"
-						max="230"
-						step="1"
+						min={130}
+						max={230}
+						step={1}
 						inputmode="numeric"
 						placeholder="160"
 					/>
@@ -113,9 +113,9 @@
 						id="age"
 						text="Age"
 						name="age"
-						min="18"
-						max="99"
-						step="1"
+						min={18}
+						max={99}
+						step={1}
 						inputmode="numeric"
 						placeholder="42"
 					/>
