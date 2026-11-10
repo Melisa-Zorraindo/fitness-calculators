@@ -10,6 +10,8 @@
 	type ActivityLevel = Parameters<typeof calculateTdee>[1];
 	type Goal = Parameters<typeof calculateTdee>[2];
 
+	type Macro = 'weightlifting' | 'balanced' | 'keto';
+
 	// TODO: retrieve values from localstorage || hardcoded
 	let gender = $state<Gender>('female');
 	let weight = $state(60);
@@ -17,10 +19,28 @@
 	let age = $state(42);
 	let activityLevel = $state<ActivityLevel>('moderate');
 	let goal = $state<Goal>('maintain');
-	let macro = $state('weightlifting');
+	let macro = $state<Macro>('weightlifting');
 	let bmr = $derived(calculateBmrMifflinStJeor(gender, age, weight, height));
 
+	const macroSplit = $derived.by(() => {
+		switch (macro) {
+			case 'balanced':
+				return { carbs: 50, fat: 30, protein: 20 };
+			case 'keto':
+				return { carbs: 10, fat: 75, protein: 15 };
+			case 'weightlifting': {
+				// 2g protein (4 kcal/g) and 1g fat (9 kcal/g) per kg of body weight, the rest is carbs
+				const protein = ((weight * 2 * 4) / tdee) * 100;
+				const fat = ((weight * 1 * 9) / tdee) * 100;
+				return { carbs: Math.max(0, 100 - protein - fat), fat, protein };
+			}
+		}
+	});
+
 	const tdee = $derived(calculateTdee(bmr, activityLevel, goal));
+	const { carbs, fat, protein } = $derived(
+		calculateMacros(tdee, macroSplit.carbs, macroSplit.fat, macroSplit.protein)
+	);
 	const activity = $derived(Math.round(tdee) - bmr);
 	const bmrPct = $derived(Math.round((bmr / tdee) * 100));
 	const actPct = $derived(100 - bmrPct);
@@ -29,10 +49,10 @@
 
 <section class="mx-2 mb-2.5 rounded-sm bg-gray-100 p-3">
 	<div class="grid grid-cols-3 gap-2">
-		<Card text="DAILY CALORIES" value={Math.round(tdee)} variant="primary" />
-		<Card text="PROTEIN" value="110 g" />
-		<Card text="CARBS" value="250 g" />
-		<Card text="FAT" value="68 g" />
+		<Card text="DAILY CALORIES" value={`${Math.round(tdee)} kcal`} variant="primary" />
+		<Card text="CARBS" value={`${carbs} g`} />
+		<Card text="FAT" value={`${fat} g`} />
+		<Card text="PROTEIN" value={`${protein} g`} />
 	</div>
 </section>
 
@@ -99,8 +119,8 @@
 						id="weight"
 						text="Weight (kg)"
 						name="weight"
-						min={1}
-						max={500}
+						min={40}
+						max={400}
 						step={0.1}
 						inputmode="decimal"
 						placeholder="60"
