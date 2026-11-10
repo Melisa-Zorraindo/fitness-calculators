@@ -39,6 +39,7 @@
 		"#lib/*": "./src/lib/*"
 	},
 	"dependencies": {
-		"@iconify-json/fa7-solid": "^1.2.5"
+		"@iconify-json/fa7-solid": "^1.2.5",
+		"fit-tools": "^2.0.0"
 	}
 }

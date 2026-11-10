@@ -9,7 +9,8 @@
 		max,
 		step,
 		inputmode,
-		placeholder
+		placeholder,
+		value = $bindable()
 	}: {
 		id: string;
 		text: string;
@@ -19,6 +20,7 @@
 		step: number;
 		inputmode: HTMLInputAttributes['inputmode'];
 		placeholder: string;
+		value: number;
 	} = $props();
 </script>
 
@@ -32,5 +34,6 @@
 	{step}
 	{inputmode}
 	{placeholder}
+	bind:value
 	class="h-12 w-full rounded-md border border-gray-300 bg-white px-3 text-base text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-teal-300 focus:ring-1 focus:ring-teal-200/30 focus:outline-none"
 />
