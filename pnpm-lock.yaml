@@ -12,8 +12,8 @@ importers:
         specifier: ^1.2.5
         version: 1.2.5
       fit-tools:
-        specifier: ^2.0.0
-        version: 2.0.0
+        specifier: ^2.0.1
+        version: 2.0.1
     devDependencies:
       '@eslint/js':
         specifier: ^10.0.1
@@ -716,8 +716,8 @@ packages:
     resolution: {integrity: sha512-78/PXT1wlLLDgTzDs7sjq9hzz0vXD+zn+7wypEe4fXQxCmdmqfGsEPQxmiCSQI3ajFV91bVSsvNtrJRiW6nGng==}
     engines: {node: '>=10'}
 
-  fit-tools@2.0.0:
-    resolution: {integrity: sha512-lpj4NaW5qeinKjoFCrSZkc2/L0/v05nDc/punaedCr2YGoZHUMXx+b+dZvotatuC6T9JuZMwnX3CGtPQV9k2pg==}
+  fit-tools@2.0.1:
+    resolution: {integrity: sha512-AxwFp362nT1MBwML0hR+fyjHNbIkKehCcMxVkzTSougDTPqvoIKPVLLQlo0fKCbuw0MqRV42W8ufJCSjNR62Eg==}
     engines: {node: '>=20.0.0'}
 
   flat-cache@6.1.23:
@@ -1900,7 +1900,7 @@ snapshots:
       locate-path: 6.0.0
       path-exists: 4.0.0
 
-  fit-tools@2.0.0: {}
+  fit-tools@2.0.1: {}
 
   flat-cache@6.1.23:
     dependencies:
