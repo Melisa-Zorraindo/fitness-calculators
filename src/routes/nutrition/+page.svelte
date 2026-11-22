@@ -4,11 +4,7 @@
 	import Radio from '#lib/components/inputs/Radio.svelte';
 	import Select from '#lib/components/inputs/Select.svelte';
 	import { calculateBmrMifflinStJeor, calculateMacros, calculateTdee } from 'fit-tools';
-
-	// TODO: remove inferred types when calculator exports them
-	type Gender = Parameters<typeof calculateBmrMifflinStJeor>[0];
-	type ActivityLevel = Parameters<typeof calculateTdee>[1];
-	type Goal = Parameters<typeof calculateTdee>[2];
+	import type { ActivityLevel, Gender, Goal } from 'fit-tools';
 
 	type Macro = 'weightlifting' | 'balanced' | 'keto';
 
