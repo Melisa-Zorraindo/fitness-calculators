@@ -3,15 +3,36 @@
 	import Number from '#lib/components/inputs/Number.svelte';
 	import Range from '#lib/components/inputs/Range.svelte';
 	import RepsLadder from '#lib/components/RepsLadder.svelte';
+	import { calculateOneRepMaxTuchscherer, calculateWeightToLift } from 'fit-tools';
 
 	let rpe = $state(8);
 	let targetRpe = $state(8);
+	let weight = $state(50);
+	let reps = $state(3);
+	let targetReps = $state(6);
+	const oneRepMax = $derived(calculateOneRepMaxTuchscherer(reps, rpe, weight));
+	const weightToLift = $derived(calculateWeightToLift(targetReps, targetRpe, oneRepMax));
+	const pctOfOneRepMax = $derived(oneRepMax > 0 ? (weightToLift / oneRepMax) * 100 : 0);
+
+	const ladderRows = $derived(
+		Array.from({ length: 12 }, (_, i) => {
+			const r = i + 1;
+			const load = calculateWeightToLift(r, targetRpe, oneRepMax);
+			return {
+				reps: r,
+				pct: oneRepMax > 0 ? Math.round((load / oneRepMax) * 100) : 0,
+				rpe: targetRpe,
+				rir: 10 - targetRpe,
+				load
+			};
+		})
+	);
 </script>
 
 <div class="mx-2 mb-2.5 grid grid-cols-2 gap-2 rounded-sm bg-gray-100 p-3">
-	<Card text="LOAD THE BAR" value="100 kg" variant="primary" />
-	<Card text="1RM" value="115.9 kg" />
-	<Card text="% 1RM" value="86" />
+	<Card text="LOAD THE BAR" value={`${weightToLift} kg`} variant="primary" />
+	<Card text="1RM" value={`${oneRepMax} kg`} />
+	<Card text="% 1RM" value={`${Math.round(pctOfOneRepMax)} %`} />
 </div>
 
 <form class="mx-2 mb-2.5 space-y-6 rounded-sm bg-gray-100 p-3">
@@ -29,7 +50,8 @@
 						max={500}
 						step={0.5}
 						inputmode="decimal"
-						placeholder="100"
+						placeholder="50"
+						bind:value={weight}
 					/>
 				</div>
 				<div class="flex flex-col gap-1.5">
@@ -41,7 +63,8 @@
 						max={12}
 						step={1}
 						inputmode="numeric"
-						placeholder="5"
+						placeholder="3"
+						bind:value={reps}
 					/>
 				</div>
 			</div>
@@ -73,7 +96,8 @@
 					max={12}
 					step={1}
 					inputmode="numeric"
-					placeholder="3"
+					placeholder="6"
+					bind:value={targetReps}
 				/>
 			</div>
 
@@ -90,20 +114,4 @@
 	</fieldset>
 </form>
 
-<RepsLadder
-	rows={[
-		{ reps: 1, pct: 100, rpe: 10, rir: 0, load: 125 },
-		{ reps: 2, pct: 90, rpe: 9, rir: 1, load: 100 },
-		{ reps: 3, pct: 90, rpe: 9, rir: 1, load: 100 },
-		{ reps: 4, pct: 90, rpe: 9, rir: 1, load: 100 },
-		{ reps: 5, pct: 90, rpe: 9, rir: 1, load: 100 },
-		{ reps: 6, pct: 90, rpe: 9, rir: 1, load: 100 },
-		{ reps: 7, pct: 90, rpe: 9, rir: 1, load: 100 },
-		{ reps: 8, pct: 90, rpe: 9, rir: 1, load: 100 },
-		{ reps: 9, pct: 90, rpe: 9, rir: 1, load: 100 },
-		{ reps: 10, pct: 90, rpe: 9, rir: 1, load: 100 },
-		{ reps: 11, pct: 90, rpe: 9, rir: 1, load: 100 },
-		{ reps: 12, pct: 90, rpe: 9, rir: 1, load: 100 }
-	]}
-	targetReps={3}
-/>
+<RepsLadder rows={ladderRows} {targetReps} />
