@@ -30,9 +30,9 @@
 </script>
 
 <div class="mx-2 mb-2.5 grid grid-cols-2 gap-2 rounded-sm bg-gray-100 p-3">
-	<Card text="LOAD THE BAR" value={`${weightToLift} kg`} variant="primary" />
-	<Card text="1RM" value={`${oneRepMax} kg`} />
-	<Card text="% 1RM" value={`${Math.round(pctOfOneRepMax)} %`} />
+	<Card text="LOAD THE BAR" value={`${weightToLift}`} unit="kg" variant="primary" />
+	<Card text="1RM" value={`${oneRepMax}`} unit="kg" />
+	<Card text="% 1RM" value={`${Math.round(pctOfOneRepMax)}`} unit="%" />
 </div>
 
 <form class="mx-2 mb-2.5 space-y-6 rounded-sm bg-gray-100 p-3">

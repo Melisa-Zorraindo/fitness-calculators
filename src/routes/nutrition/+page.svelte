@@ -45,10 +45,10 @@
 
 <section class="mx-2 mb-2.5 rounded-sm bg-gray-100 p-3">
 	<div class="grid grid-cols-3 gap-2">
-		<Card text="DAILY CALORIES" value={`${tdee} kcal`} variant="primary" />
-		<Card text="CARBS" value={`${carbs} g`} />
-		<Card text="FAT" value={`${fat} g`} />
-		<Card text="PROTEIN" value={`${protein} g`} />
+		<Card text="DAILY CALORIES" value={`${tdee}`} unit="kcal" variant="primary" />
+		<Card text="CARBS" value={`${carbs}`} unit="g" />
+		<Card text="FAT" value={`${fat}`} unit="g" />
+		<Card text="PROTEIN" value={`${protein}`} unit="g" />
 	</div>
 </section>
 
