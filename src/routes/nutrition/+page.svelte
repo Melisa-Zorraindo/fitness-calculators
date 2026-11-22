@@ -37,15 +37,15 @@
 	const { carbs, fat, protein } = $derived(
 		calculateMacros(tdee, macroSplit.carbs, macroSplit.fat, macroSplit.protein)
 	);
-	const activity = $derived(Math.round(tdee) - bmr);
-	const bmrPct = $derived(Math.round((bmr / tdee) * 100));
+	const activity = $derived(tdee - bmr);
+	const bmrPct = $derived(Math.floor((bmr / tdee) * 100));
 	const actPct = $derived(100 - bmrPct);
 	const fmt = (n: number) => n.toLocaleString('en-US');
 </script>
 
 <section class="mx-2 mb-2.5 rounded-sm bg-gray-100 p-3">
 	<div class="grid grid-cols-3 gap-2">
-		<Card text="DAILY CALORIES" value={`${Math.round(tdee)} kcal`} variant="primary" />
+		<Card text="DAILY CALORIES" value={`${tdee} kcal`} variant="primary" />
 		<Card text="CARBS" value={`${carbs} g`} />
 		<Card text="FAT" value={`${fat} g`} />
 		<Card text="PROTEIN" value={`${protein} g`} />
