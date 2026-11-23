@@ -6,20 +6,22 @@
 	import { calculateBmrMifflinStJeor, calculateMacros, calculateTdee } from 'fit-tools';
 	import type { ActivityLevel, Gender, Goal } from 'fit-tools';
 
-	type Macro = 'weightlifting' | 'balanced' | 'keto';
+	type Diet = 'weightlifting' | 'balanced' | 'keto';
 
-	// TODO: retrieve values from localstorage || hardcoded
-	let gender = $state<Gender>('female');
-	let weight = $state(60);
-	let height = $state(160);
-	let age = $state(42);
-	let activityLevel = $state<ActivityLevel>('moderate');
-	let goal = $state<Goal>('maintain');
-	let macro = $state<Macro>('weightlifting');
+	let gender = $state<Gender>((localStorage.getItem('gender') as Gender) || 'female');
+	let weight = $state(globalThis.Number(localStorage.getItem('weight')) || 60);
+	let height = $state(globalThis.Number(localStorage.getItem('height')) || 160);
+	let age = $state(globalThis.Number(localStorage.getItem('age')) || 42);
+	let activityLevel = $state<ActivityLevel>(
+		(localStorage.getItem('activityLevel') as ActivityLevel) || 'moderate'
+	);
+	let goal = $state<Goal>((localStorage.getItem('goal') as Goal) || 'maintain');
+	let diet = $state<Diet>((localStorage.getItem('diet') as Diet) || 'weightlifting');
 	let bmr = $derived(calculateBmrMifflinStJeor(gender, age, weight, height));
+	const tdee = $derived(calculateTdee(bmr, activityLevel, goal));
 
-	const macroSplit = $derived.by(() => {
-		switch (macro) {
+	const dietSplit = $derived.by(() => {
+		switch (diet) {
 			case 'balanced':
 				return { carbs: 50, fat: 30, protein: 20 };
 			case 'keto':
@@ -33,14 +35,23 @@
 		}
 	});
 
-	const tdee = $derived(calculateTdee(bmr, activityLevel, goal));
 	const { carbs, fat, protein } = $derived(
-		calculateMacros(tdee, macroSplit.carbs, macroSplit.fat, macroSplit.protein)
+		calculateMacros(tdee, dietSplit.carbs, dietSplit.fat, dietSplit.protein)
 	);
 	const activity = $derived(tdee - bmr);
 	const bmrPct = $derived(Math.floor((bmr / tdee) * 100));
 	const actPct = $derived(100 - bmrPct);
 	const fmt = (n: number) => n.toLocaleString('en-US');
+
+	$effect(() => {
+		localStorage.setItem('gender', gender);
+		localStorage.setItem('weight', String(weight));
+		localStorage.setItem('height', String(height));
+		localStorage.setItem('age', String(age));
+		localStorage.setItem('activityLevel', activityLevel);
+		localStorage.setItem('goal', goal);
+		localStorage.setItem('diet', diet);
+	});
 </script>
 
 <section class="mx-2 mb-2.5 rounded-sm bg-gray-100 p-3">
@@ -187,7 +198,7 @@
 					{ value: 'balanced', label: 'Balanced' },
 					{ value: 'keto', label: 'Keto' }
 				]}
-				bind:value={macro}
+				bind:value={diet}
 			/>
 		</div>
 	</fieldset>

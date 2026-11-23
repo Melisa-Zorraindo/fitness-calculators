@@ -5,11 +5,11 @@
 	import RepsLadder from '#lib/components/RepsLadder.svelte';
 	import { calculateOneRepMaxTuchscherer, calculateWeightToLift } from 'fit-tools';
 
-	let rpe = $state(8);
-	let targetRpe = $state(8);
-	let weight = $state(50);
-	let reps = $state(3);
-	let targetReps = $state(6);
+	let rpe = $state(globalThis.Number(localStorage.getItem('rpe')) || 8);
+	let targetRpe = $state(globalThis.Number(localStorage.getItem('targetRpe')) || 9.5);
+	let weight = $state(globalThis.Number(localStorage.getItem('liftedWeight')) || 50);
+	let reps = $state(globalThis.Number(localStorage.getItem('reps')) || 3);
+	let targetReps = $state(globalThis.Number(localStorage.getItem('targetReps')) || 6);
 	const oneRepMax = $derived(calculateOneRepMaxTuchscherer(reps, rpe, weight));
 	const weightToLift = $derived(calculateWeightToLift(targetReps, targetRpe, oneRepMax));
 	const pctOfOneRepMax = $derived(oneRepMax > 0 ? (weightToLift / oneRepMax) * 100 : 0);
@@ -27,6 +27,14 @@
 			};
 		})
 	);
+
+	$effect(() => {
+		localStorage.setItem('rpe', String(rpe));
+		localStorage.setItem('targetRpe', String(targetRpe));
+		localStorage.setItem('liftedWeight', String(weight));
+		localStorage.setItem('reps', String(reps));
+		localStorage.setItem('targetReps', String(targetReps));
+	});
 </script>
 
 <div class="mx-2 mb-2.5 grid grid-cols-2 gap-2 rounded-sm bg-gray-100 p-3">
